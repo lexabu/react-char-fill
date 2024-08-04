@@ -32,6 +32,8 @@ const CharacterFill: React.FC<CharacterFillProps> = ({
         cursor: 'inherit', // Inherit cursor style from parent
         padding: 0,
         outline: 'none',
+        lineHeight: 0, // Adjust line-height to reduce height
+        verticalAlign: 'middle', // Adjust vertical alignment
       }}
       aria-label={`Rate ${position}`}
       className="rating-symbol"
@@ -40,7 +42,9 @@ const CharacterFill: React.FC<CharacterFillProps> = ({
         style={{
           color: emptyColor,
           fontSize,
+          lineHeight: fontSize, // Ensure the line-height matches the font-size
           boxSizing: 'border-box',
+          verticalAlign: 'middle',
         }}
       >
         {character}
@@ -54,7 +58,10 @@ const CharacterFill: React.FC<CharacterFillProps> = ({
           overflow: 'hidden',
           width,
           fontSize,
+          lineHeight: fontSize, // Ensure the line-height matches the font-size
           boxSizing: 'border-box',
+          border: '1px solid red',
+          verticalAlign: 'middle',
         }}
       >
         {character}
