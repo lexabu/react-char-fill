@@ -61,19 +61,21 @@ function App() {
   };
 
   const filteredCharacters = characters.filter((charObj) => {
-    const { name, character, category } = charObj;
+    const { name, character, categories } = charObj;
     const matchesSearchTerm =
       name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       character.includes(searchTerm) ||
-      category.toLowerCase().includes(searchTerm.toLowerCase());
+      categories.some((cat: string) =>
+        cat.toLowerCase().includes(searchTerm.toLowerCase()),
+      );
     const matchesCategory = selectedCategory
-      ? category === selectedCategory
+      ? categories.includes(selectedCategory)
       : true;
     return matchesSearchTerm && matchesCategory;
   });
 
   const categories = [
-    ...new Set(characters.map((charObj) => charObj.category)),
+    ...new Set(characters.flatMap((charObj) => charObj.categories)),
   ];
 
   return (
