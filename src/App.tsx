@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import CharacterRating from './CharacterRating/CharacterRating';
+import Controls from './Controls/Controls';
+import CategoryButtons from './CategoryButtons/CategoryButtons';
 import './App.css';
 import { characters } from './utils/characters';
 
@@ -16,50 +18,42 @@ function App() {
   const [step, setStep] = useState(0.25);
   const [currentRating, setCurrentRating] = useState(2.5);
 
-  const handleCharacterChange = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
+  const handleCharacterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCharacter(e.target.value);
   };
 
-  const handleRatingChange = (e: { target: { value: string } }) => {
+  const handleRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRating(parseFloat(e.target.value));
   };
 
-  const handleMaxRatingChange = (e: { target: { value: string } }) => {
+  const handleMaxRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMaxRating(parseInt(e.target.value, 10));
   };
 
-  const handleEmptyColorChange = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
+  const handleEmptyColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmptyColor(e.target.value);
   };
 
-  const handleFillColorChange = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
+  const handleFillColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFillColor(e.target.value);
   };
 
-  const handleFontSizeChange = (e: { target: { value: string } }) => {
+  const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value, 10);
     if (value >= 4 && value <= 180) {
       setFontSize(value);
     }
   };
 
-  const handleCharacterClick = (char: React.SetStateAction<string>) => {
+  const handleCharacterClick = (char: string) => {
     setCharacter(char);
   };
 
-  const handleSearchChange = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
-  const handleCategoryClick = (category: React.SetStateAction<string>) => {
+  const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
   };
 
@@ -153,93 +147,24 @@ function App() {
   return (
     <div className="app">
       <h1>Character Rating Test</h1>
-      <div className="controls">
-        <label>
-          Rating:
-          <input
-            type="number"
-            step={step}
-            value={rating}
-            onChange={handleRatingChange}
-            min="0"
-            max={maxRating}
-            aria-label="Rating"
-          />
-        </label>
-        <label>
-          Character:
-          <select
-            value={character}
-            onChange={handleCharacterChange}
-            aria-label="Character"
-          >
-            {filteredCharacters.map((charObj) => (
-              <option key={charObj.character} value={charObj.character}>
-                {charObj.character}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          Max Rating:
-          <input
-            type="number"
-            value={maxRating}
-            onChange={handleMaxRatingChange}
-            min="1"
-            aria-label="Max Rating"
-          />
-        </label>
-        <label>
-          Empty Color:
-          <input
-            type="color"
-            value={emptyColor}
-            onChange={handleEmptyColorChange}
-            aria-label="Empty Color"
-          />
-        </label>
-        <label>
-          Fill Color:
-          <input
-            type="color"
-            value={fillColor}
-            onChange={handleFillColorChange}
-            aria-label="Fill Color"
-          />
-        </label>
-        <label>
-          Font Size (px):
-          <input
-            type="number"
-            value={fontSize}
-            onChange={handleFontSizeChange}
-            step="2"
-            aria-label="Font Size"
-          />
-        </label>
-        <label>
-          Interactive:
-          <input
-            type="checkbox"
-            checked={interactive}
-            onChange={handleInteractiveToggle}
-            onKeyDown={handleInteractiveKeyDown}
-            aria-label="Toggle Interactive"
-          />
-        </label>
-        <label>
-          Step:
-          <input
-            type="number"
-            step="0.01"
-            value={step}
-            onChange={(e) => setStep(parseFloat(e.target.value))}
-            min="0.01"
-            aria-label="Step"
-          />
-        </label>
-      </div>
+      <Controls
+        rating={rating}
+        maxRating={maxRating}
+        emptyColor={emptyColor}
+        fillColor={fillColor}
+        fontSize={fontSize}
+        step={step}
+        interactive={interactive}
+        onRatingChange={handleRatingChange}
+        onCharacterChange={handleCharacterChange}
+        onMaxRatingChange={handleMaxRatingChange}
+        onEmptyColorChange={handleEmptyColorChange}
+        onFillColorChange={handleFillColorChange}
+        onFontSizeChange={handleFontSizeChange}
+        onInteractiveToggle={handleInteractiveToggle}
+        onInteractiveKeyDown={handleInteractiveKeyDown}
+        onStepChange={(e) => setStep(parseFloat(e.target.value))}
+      />
       <div className="rating-section">
         <CharacterRating
           rating={currentRating}
@@ -266,25 +191,11 @@ function App() {
           />
         </label>
       </div>
-      <div className="category-controls">
-        {categories.map((category) => (
-          <button
-            key={category}
-            className={`category-button ${
-              selectedCategory === category ? 'active' : ''
-            }`}
-            onClick={() => handleCategoryClick(category)}
-          >
-            {category}
-          </button>
-        ))}
-        <button
-          className={`category-button ${selectedCategory === '' ? 'active' : ''}`}
-          onClick={() => handleCategoryClick('')}
-        >
-          All
-        </button>
-      </div>
+      <CategoryButtons
+        categories={categories}
+        selectedCategory={selectedCategory}
+        onCategoryClick={handleCategoryClick}
+      />
       <div className="symbol-container" role="menu">
         {filteredCharacters.map((charObj) => (
           <button
