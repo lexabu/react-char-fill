@@ -9,7 +9,14 @@
   ],
   "ignorePatterns": ["dist", ".eslintrc.cjs"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react-refresh", "prettier"],
+  "plugins": [
+    "react-refresh",
+    "prettier",
+    "@typescript-eslint",
+    "import",
+    "jsx-a11y",
+    "react-hooks"
+  ],
   "rules": {
     "react-refresh/only-export-components": [
       "warn",

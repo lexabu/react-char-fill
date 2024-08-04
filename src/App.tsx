@@ -1,10 +1,10 @@
 // App.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import CategoryButtons from './CategoryButtons/CategoryButtons';
 import CharacterRating from './CharacterRating/CharacterRating';
 import Controls from './Controls/Controls';
-import CategoryButtons from './CategoryButtons/CategoryButtons';
 import Toast from './Toast/Toast';
-import './App.css';
 import { characters } from './utils/characters';
 
 function App() {
