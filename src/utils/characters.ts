@@ -1,341 +1,409 @@
 export const characters = [
   // Stars Category
-  '★', // Black star
-  '☆', // White star
-  '✪', // Star with shadow
-  '✰', // Star
+  { name: 'Black star', character: '★', category: 'Stars' },
+  { name: 'White star', character: '☆', category: 'Stars' },
+  { name: 'Star with shadow', character: '✪', category: 'Stars' },
+  { name: 'Star', character: '✰', category: 'Stars' },
 
   // Currency Category
-  '$', // Dollar sign
-  '¢', // Cent sign
-  '£', // Pound sign
-  '¥', // Yen sign
-  '¤', // Currency sign
-  '₪', // New Sheqel sign
-  '€', // Euro sign
-  '₤', // Lira sign
-  '₦', // Naira sign
-  '₧', // Peseta sign
-  '₨', // Rupee sign
-  '₩', // Won sign
-  '₮', // Tugrik sign
-  '₱', // Peso sign
-  '₲', // Guarani sign
-  '₳', // Austral sign
-  '₴', // Hryvnia sign
-  '₵', // Cedi sign
-  '₭', // Kip sign
-  '₺', // Turkish Lira sign
-  '₼', // Manat sign
-  '₽', // Ruble sign
-  '₾', // Lari sign
+  { name: 'Dollar sign', character: '$', category: 'Currency' },
+  { name: 'Cent sign', character: '¢', category: 'Currency' },
+  { name: 'Pound sign', character: '£', category: 'Currency' },
+  { name: 'Yen sign', character: '¥', category: 'Currency' },
+  { name: 'Currency sign', character: '¤', category: 'Currency' },
+  { name: 'New Sheqel sign', character: '₪', category: 'Currency' },
+  { name: 'Euro sign', character: '€', category: 'Currency' },
+  { name: 'Lira sign', character: '₤', category: 'Currency' },
+  { name: 'Naira sign', character: '₦', category: 'Currency' },
+  { name: 'Peseta sign', character: '₧', category: 'Currency' },
+  { name: 'Rupee sign', character: '₨', category: 'Currency' },
+  { name: 'Won sign', character: '₩', category: 'Currency' },
+  { name: 'Tugrik sign', character: '₮', category: 'Currency' },
+  { name: 'Peso sign', character: '₱', category: 'Currency' },
+  { name: 'Guarani sign', character: '₲', category: 'Currency' },
+  { name: 'Austral sign', character: '₳', category: 'Currency' },
+  { name: 'Hryvnia sign', character: '₴', category: 'Currency' },
+  { name: 'Cedi sign', character: '₵', category: 'Currency' },
+  { name: 'Kip sign', character: '₭', category: 'Currency' },
+  { name: 'Turkish Lira sign', character: '₺', category: 'Currency' },
+  { name: 'Manat sign', character: '₼', category: 'Currency' },
+  { name: 'Ruble sign', character: '₽', category: 'Currency' },
+  { name: 'Lari sign', character: '₾', category: 'Currency' },
 
   // Basic symbols Category
-  '#', // Hash symbol
-  '@', // At symbol
-  '!', // Exclamation mark symbol
-  '%', // Percent symbol
-  '&', // Ampersand symbol
-  '*', // Asterisk symbol
-  '+', // Plus symbol
-  '-', // Minus symbol
-  '=', // Equals symbol
-  '^', // Caret symbol
-  '_', // Underscore symbol
-  '~', // Tilde symbol
-  '.', // Period symbol
-  ',', // Comma symbol
-  ':', // Colon symbol
-  ';', // Semicolon symbol
-  '"', // Double quote symbol
-  "'", // Single quote symbol
-  '`', // Backtick symbol
+  { name: 'Hash symbol', character: '#', category: 'Basic symbols' },
+  { name: 'At symbol', character: '@', category: 'Basic symbols' },
+  {
+    name: 'Exclamation mark symbol',
+    character: '!',
+    category: 'Basic symbols',
+  },
+  { name: 'Percent symbol', character: '%', category: 'Basic symbols' },
+  { name: 'Ampersand symbol', character: '&', category: 'Basic symbols' },
+  { name: 'Asterisk symbol', character: '*', category: 'Basic symbols' },
+  { name: 'Plus symbol', character: '+', category: 'Basic symbols' },
+  { name: 'Minus symbol', character: '-', category: 'Basic symbols' },
+  { name: 'Equals symbol', character: '=', category: 'Basic symbols' },
+  { name: 'Caret symbol', character: '^', category: 'Basic symbols' },
+  { name: 'Underscore symbol', character: '_', category: 'Basic symbols' },
+  { name: 'Tilde symbol', character: '~', category: 'Basic symbols' },
+  { name: 'Period symbol', character: '.', category: 'Basic symbols' },
+  { name: 'Comma symbol', character: ',', category: 'Basic symbols' },
+  { name: 'Colon symbol', character: ':', category: 'Basic symbols' },
+  { name: 'Semicolon symbol', character: ';', category: 'Basic symbols' },
+  { name: 'Double quote symbol', character: '"', category: 'Basic symbols' },
+  { name: 'Single quote symbol', character: "'", category: 'Basic symbols' },
+  { name: 'Backtick symbol', character: '`', category: 'Basic symbols' },
 
   // Punctuation
-  '?', // Question mark symbol
-  '(', // Open parenthesis
-  ')', // Close parenthesis
-  '[', // Open bracket
-  ']', // Close bracket
-  '{', // Open brace
-  '}', // Close brace
-  '<', // Less than
-  '>', // Greater than
-  '/', // Slash
-  '|', // Vertical bar
+  { name: 'Question mark symbol', character: '?', category: 'Punctuation' },
+  { name: 'Open parenthesis', character: '(', category: 'Punctuation' },
+  { name: 'Close parenthesis', character: ')', category: 'Punctuation' },
+  { name: 'Open bracket', character: '[', category: 'Punctuation' },
+  { name: 'Close bracket', character: ']', category: 'Punctuation' },
+  { name: 'Open brace', character: '{', category: 'Punctuation' },
+  { name: 'Close brace', character: '}', category: 'Punctuation' },
+  { name: 'Less than', character: '<', category: 'Punctuation' },
+  { name: 'Greater than', character: '>', category: 'Punctuation' },
+  { name: 'Slash', character: '/', category: 'Punctuation' },
+  { name: 'Vertical bar', character: '|', category: 'Punctuation' },
 
   // Shapes
-  '✦', // Black four-pointed star
-  '✧', // White four-pointed star
-  '⭑', // Heavy white four-pointed star
-  '◆', // Black diamond
-  '◇', // White diamond
-  '◉', // Fisheye
-  '○', // White circle
-  '◎', // Bullseye
-  '●', // Black circle
-  '■', // Black square
-  '□', // White square
-  '▲', // Black up-pointing triangle
-  '△', // White up-pointing triangle
-  '▼', // Black down-pointing triangle
-  '▽', // White down-pointing triangle
+  { name: 'Black four-pointed star', character: '✦', category: 'Shapes' },
+  { name: 'White four-pointed star', character: '✧', category: 'Shapes' },
+  { name: 'Heavy white four-pointed star', character: '⭑', category: 'Shapes' },
+  { name: 'Black diamond', character: '◆', category: 'Shapes' },
+  { name: 'White diamond', character: '◇', category: 'Shapes' },
+  { name: 'Fisheye', character: '◉', category: 'Shapes' },
+  { name: 'White circle', character: '○', category: 'Shapes' },
+  { name: 'Bullseye', character: '◎', category: 'Shapes' },
+  { name: 'Black circle', character: '●', category: 'Shapes' },
+  { name: 'Black square', character: '■', category: 'Shapes' },
+  { name: 'White square', character: '□', category: 'Shapes' },
+  { name: 'Black up-pointing triangle', character: '▲', category: 'Shapes' },
+  { name: 'White up-pointing triangle', character: '△', category: 'Shapes' },
+  { name: 'Black down-pointing triangle', character: '▼', category: 'Shapes' },
+  { name: 'White down-pointing triangle', character: '▽', category: 'Shapes' },
 
   // Cards
-  '♠', // Spade suit
-  '♣', // Club suit
-  '♥', // Heart suit
-  '♦', // Diamond suit
-  '♤', // White spade suit
-  '♧', // White club suit
-  '♡', // White heart suit
-  '♢', // White diamond suit
+  { name: 'Spade suit', character: '♠', category: 'Cards' },
+  { name: 'Club suit', character: '♣', category: 'Cards' },
+  { name: 'Heart suit', character: '♥', category: 'Cards' },
+  { name: 'Diamond suit', character: '♦', category: 'Cards' },
+  { name: 'White spade suit', character: '♤', category: 'Cards' },
+  { name: 'White club suit', character: '♧', category: 'Cards' },
+  { name: 'White heart suit', character: '♡', category: 'Cards' },
+  { name: 'White diamond suit', character: '♢', category: 'Cards' },
 
   // Chess
-  '♔', // White king
-  '♕', // White queen
-  '♖', // White rook
-  '♗', // White bishop
-  '♘', // White knight
-  '♙', // White pawn
-  '♚', // Black king
-  '♛', // Black queen
-  '♜', // Black rook
-  '♝', // Black bishop
-  '♞', // Black knight
-  '♟', // Black pawn
+  { name: 'White king', character: '♔', category: 'Chess' },
+  { name: 'White queen', character: '♕', category: 'Chess' },
+  { name: 'White rook', character: '♖', category: 'Chess' },
+  { name: 'White bishop', character: '♗', category: 'Chess' },
+  { name: 'White knight', character: '♘', category: 'Chess' },
+  { name: 'White pawn', character: '♙', category: 'Chess' },
+  { name: 'Black king', character: '♚', category: 'Chess' },
+  { name: 'Black queen', character: '♛', category: 'Chess' },
+  { name: 'Black rook', character: '♜', category: 'Chess' },
+  { name: 'Black bishop', character: '♝', category: 'Chess' },
+  { name: 'Black knight', character: '♞', category: 'Chess' },
+  { name: 'Black pawn', character: '♟', category: 'Chess' },
 
   // Music
-  '♩', // Quarter note
-  '♪', // Eighth note
-  '♫', // Beamed eighth notes
-  '♬', // Beamed sixteenth notes
-  '♭', // Music flat sign
-  '♮', // Music natural sign
-  '♯', // Music sharp sign
+  { name: 'Quarter note', character: '♩', category: 'Music' },
+  { name: 'Eighth note', character: '♪', category: 'Music' },
+  { name: 'Beamed eighth notes', character: '♫', category: 'Music' },
+  { name: 'Beamed sixteenth notes', character: '♬', category: 'Music' },
+  { name: 'Music flat sign', character: '♭', category: 'Music' },
+  { name: 'Music natural sign', character: '♮', category: 'Music' },
+  { name: 'Music sharp sign', character: '♯', category: 'Music' },
 
   // Other symbols
-  '♺', // Recycle
-  '♻', // Universal recycling symbol
-  '♼', // Recycled paper symbol
-  '♽', // Partially recycled paper symbol
-  '♾', // Permanent paper sign
-  '⚀', // Die face-1
-  '⚁', // Die face-2
-  '⚂', // Die face-3
-  '⚃', // Die face-4
-  '⚄', // Die face-5
-  '⚅', // Die face-6
-  '⚆', // White circle with dot right
-  '⚇', // Inverse white circle with dot right
-  '⚈', // White circle with two dots
-  '⚉', // Inverse white circle with two dots
-  '⚐', // Black flag
-  '⚑', // White flag
-  '⚒', // Hammer and pick
-  '⚓', // Anchor
-  '⚔', // Crossed swords
-  '⚕', // Medical symbol
-  '⚖', // Scales
-  '⚗', // Alembic
-  '⚘', // Flower
-  '⚙', // Gear
-  '⚚', // Staff of Hermes
-  '⚛', // Atom symbol
-  '⚜', // Fleur-de-lis
-  '⚝', // Outlined star
-  '⚞', // Three lines converging right
-  '⚟', // Three lines converging left
-  '⚠', // Warning
-  '⚢', // Doubled female sign
-  '⚣', // Doubled male sign
-  '⚤', // Interlocked male and female sign
-  '⚥', // Male and female sign
-  '⚦', // Male with stroke sign
-  '⚧', // Male with stroke and male and female sign
-  '⚨', // Vertical line with circle above
-  '⚩', // Horizontal male with stroke sign
-  '⚬', // Medium small white circle
-  '⚭', // Marriage symbol
-  '⚮', // Divorce symbol
-  '⚯', // Unmarried partnership symbol
-  '⚰', // Coffin
-  '⚱', // Funeral urn
-  '⚲', // Neuter
-  '⚳', // Earth
-  '⚴', // Earth retrograde
-  '⚵', // Ascelpius staff
-  '⚶', // Mercury
-  '⚷', // Mercury retrograde
-  '⚸', // Venus
-  '⚹', // Venus retrograde
-  '⚺', // Mars
-  '⚻', // Mars retrograde
-  '⚼', // Jupiter
-  '⚿', // Jupiter retrograde
-  '⛀', // Saturn
-  '⛁', // Saturn retrograde
-  '⛂', // Uranus
-  '⛃', // Uranus retrograde
-  '⛆', // Neptune
-  '⛇', // Neptune retrograde
-  '⛈', // Pluto
-  '⛉', // Pluto retrograde
-  '⛊', // Aries
-  '⛋', // Taurus
-  '⛌', // Gemini
-  '⛍', // Cancer
-  '⛏', // Leo
-  '⛐', // Virgo
-  '⛑', // Libra
-  '⛒', // Scorpio
-  '⛓', // Sagittarius
-  '⛕', // Capricorn
-  '⛖', // Aquarius
-  '⛗', // Pisces
-  '⛘', // Alpha
-  '⛙', // Beta
-  '⛚', // Gamma
-  '⛛', // Delta
-  '⛜', // Epsilon
-  '⛝', // Zeta
-  '⛞', // Eta
-  '⛟', // Theta
-  '⛠', // Iota
-  '⛡', // Kappa
-  '⛢', // Lambda
-  '⛣', // Mu
-  '⛤', // Nu
-  '⛥', // Xi
-  '⛦', // Omicron
-  '⛧', // Pi
-  '⛨', // Rho
-  '⛩', // Sigma
-  '⛫', // Tau
-  '⛬', // Upsilon
-  '⛭', // Phi
-  '⛮', // Chi
-  '⛯', // Psi
-  '⛰', // Omega
-  '⛱', // Open umbrella
-  '⛴', // Ferry
-  '⛶', // Square four corners
-  '⛷', // Skier
-  '⛸', // Ice skate
-  '⛻', // Carousel horse
-  '⛼', // Triangle flag on post
-  '⛾', // Japanese lantern
-  '⛿', // Triangle with rounded corners
+  { name: 'Recycle', character: '♺', category: 'Other symbols' },
+  {
+    name: 'Universal recycling symbol',
+    character: '♻',
+    category: 'Other symbols',
+  },
+  { name: 'Recycled paper symbol', character: '♼', category: 'Other symbols' },
+  {
+    name: 'Partially recycled paper symbol',
+    character: '♽',
+    category: 'Other symbols',
+  },
+  { name: 'Permanent paper sign', character: '♾', category: 'Other symbols' },
+  { name: 'Die face-1', character: '⚀', category: 'Other symbols' },
+  { name: 'Die face-2', character: '⚁', category: 'Other symbols' },
+  { name: 'Die face-3', character: '⚂', category: 'Other symbols' },
+  { name: 'Die face-4', character: '⚃', category: 'Other symbols' },
+  { name: 'Die face-5', character: '⚄', category: 'Other symbols' },
+  { name: 'Die face-6', character: '⚅', category: 'Other symbols' },
+  {
+    name: 'White circle with dot right',
+    character: '⚆',
+    category: 'Other symbols',
+  },
+  {
+    name: 'Inverse white circle with dot right',
+    character: '⚇',
+    category: 'Other symbols',
+  },
+  {
+    name: 'White circle with two dots',
+    character: '⚈',
+    category: 'Other symbols',
+  },
+  {
+    name: 'Inverse white circle with two dots',
+    character: '⚉',
+    category: 'Other symbols',
+  },
+  { name: 'Black flag', character: '⚐', category: 'Other symbols' },
+  { name: 'White flag', character: '⚑', category: 'Other symbols' },
+  { name: 'Hammer and pick', character: '⚒', category: 'Other symbols' },
+  { name: 'Anchor', character: '⚓', category: 'Other symbols' },
+  { name: 'Crossed swords', character: '⚔', category: 'Other symbols' },
+  { name: 'Medical symbol', character: '⚕', category: 'Other symbols' },
+  { name: 'Scales', character: '⚖', category: 'Other symbols' },
+  { name: 'Alembic', character: '⚗', category: 'Other symbols' },
+  { name: 'Flower', character: '⚘', category: 'Other symbols' },
+  { name: 'Gear', character: '⚙', category: 'Other symbols' },
+  { name: 'Staff of Hermes', character: '⚚', category: 'Other symbols' },
+  { name: 'Atom symbol', character: '⚛', category: 'Other symbols' },
+  { name: 'Fleur-de-lis', character: '⚜', category: 'Other symbols' },
+  { name: 'Outlined star', character: '⚝', category: 'Other symbols' },
+  {
+    name: 'Three lines converging right',
+    character: '⚞',
+    category: 'Other symbols',
+  },
+  {
+    name: 'Three lines converging left',
+    character: '⚟',
+    category: 'Other symbols',
+  },
+  { name: 'Warning', character: '⚠', category: 'Other symbols' },
+  { name: 'Doubled female sign', character: '⚢', category: 'Other symbols' },
+  { name: 'Doubled male sign', character: '⚣', category: 'Other symbols' },
+  {
+    name: 'Interlocked male and female sign',
+    character: '⚤',
+    category: 'Other symbols',
+  },
+  { name: 'Male and female sign', character: '⚥', category: 'Other symbols' },
+  { name: 'Male with stroke sign', character: '⚦', category: 'Other symbols' },
+  {
+    name: 'Male with stroke and male and female sign',
+    character: '⚧',
+    category: 'Other symbols',
+  },
+  {
+    name: 'Vertical line with circle above',
+    character: '⚨',
+    category: 'Other symbols',
+  },
+  {
+    name: 'Horizontal male with stroke sign',
+    character: '⚩',
+    category: 'Other symbols',
+  },
+  {
+    name: 'Medium small white circle',
+    character: '⚬',
+    category: 'Other symbols',
+  },
+  { name: 'Marriage symbol', character: '⚭', category: 'Other symbols' },
+  { name: 'Divorce symbol', character: '⚮', category: 'Other symbols' },
+  {
+    name: 'Unmarried partnership symbol',
+    character: '⚯',
+    category: 'Other symbols',
+  },
+  { name: 'Coffin', character: '⚰', category: 'Other symbols' },
+  { name: 'Funeral urn', character: '⚱', category: 'Other symbols' },
+  { name: 'Neuter', character: '⚲', category: 'Other symbols' },
+  { name: 'Earth', character: '⚳', category: 'Other symbols' },
+  { name: 'Earth retrograde', character: '⚴', category: 'Other symbols' },
+  { name: 'Ascelpius staff', character: '⚵', category: 'Other symbols' },
+  { name: 'Mercury', character: '⚶', category: 'Other symbols' },
+  { name: 'Mercury retrograde', character: '⚷', category: 'Other symbols' },
+  { name: 'Venus', character: '⚸', category: 'Other symbols' },
+  { name: 'Venus retrograde', character: '⚹', category: 'Other symbols' },
+  { name: 'Mars', character: '⚺', category: 'Other symbols' },
+  { name: 'Mars retrograde', character: '⚻', category: 'Other symbols' },
+  { name: 'Jupiter', character: '⚼', category: 'Other symbols' },
+  { name: 'Jupiter retrograde', character: '⚿', category: 'Other symbols' },
+  { name: 'Saturn', character: '⛀', category: 'Other symbols' },
+  { name: 'Saturn retrograde', character: '⛁', category: 'Other symbols' },
+  { name: 'Uranus', character: '⛂', category: 'Other symbols' },
+  { name: 'Uranus retrograde', character: '⛃', category: 'Other symbols' },
+  { name: 'Neptune', character: '⛆', category: 'Other symbols' },
+  { name: 'Neptune retrograde', character: '⛇', category: 'Other symbols' },
+  { name: 'Pluto', character: '⛈', category: 'Other symbols' },
+  { name: 'Pluto retrograde', character: '⛉', category: 'Other symbols' },
+  { name: 'Aries', character: '⛊', category: 'Other symbols' },
+  { name: 'Taurus', character: '⛋', category: 'Other symbols' },
+  { name: 'Gemini', character: '⛌', category: 'Other symbols' },
+  { name: 'Cancer', character: '⛍', category: 'Other symbols' },
+  { name: 'Leo', character: '⛏', category: 'Other symbols' },
+  { name: 'Virgo', character: '⛐', category: 'Other symbols' },
+  { name: 'Libra', character: '⛑', category: 'Other symbols' },
+  { name: 'Scorpio', character: '⛒', category: 'Other symbols' },
+  { name: 'Sagittarius', character: '⛓', category: 'Other symbols' },
+  { name: 'Capricorn', character: '⛕', category: 'Other symbols' },
+  { name: 'Aquarius', character: '⛖', category: 'Other symbols' },
+  { name: 'Pisces', character: '⛗', category: 'Other symbols' },
+  { name: 'Alpha', character: '⛘', category: 'Other symbols' },
+  { name: 'Beta', character: '⛙', category: 'Other symbols' },
+  { name: 'Gamma', character: '⛚', category: 'Other symbols' },
+  { name: 'Delta', character: '⛛', category: 'Other symbols' },
+  { name: 'Epsilon', character: '⛜', category: 'Other symbols' },
+  { name: 'Zeta', character: '⛝', category: 'Other symbols' },
+  { name: 'Eta', character: '⛞', category: 'Other symbols' },
+  { name: 'Theta', character: '⛟', category: 'Other symbols' },
+  { name: 'Iota', character: '⛠', category: 'Other symbols' },
+  { name: 'Kappa', character: '⛡', category: 'Other symbols' },
+  { name: 'Lambda', character: '⛢', category: 'Other symbols' },
+  { name: 'Mu', character: '⛣', category: 'Other symbols' },
+  { name: 'Nu', character: '⛤', category: 'Other symbols' },
+  { name: 'Xi', character: '⛥', category: 'Other symbols' },
+  { name: 'Omicron', character: '⛦', category: 'Other symbols' },
+  { name: 'Pi', character: '⛧', category: 'Other symbols' },
+  { name: 'Rho', character: '⛨', category: 'Other symbols' },
+  { name: 'Sigma', character: '⛩', category: 'Other symbols' },
+  { name: 'Tau', character: '⛫', category: 'Other symbols' },
+  { name: 'Upsilon', character: '⛬', category: 'Other symbols' },
+  { name: 'Phi', character: '⛭', category: 'Other symbols' },
+  { name: 'Chi', character: '⛮', category: 'Other symbols' },
+  { name: 'Psi', character: '⛯', category: 'Other symbols' },
+  { name: 'Omega', character: '⛰', category: 'Other symbols' },
+  { name: 'Open umbrella', character: '⛱', category: 'Other symbols' },
+  { name: 'Ferry', character: '⛴', category: 'Other symbols' },
+  { name: 'Square four corners', character: '⛶', category: 'Other symbols' },
+  { name: 'Skier', character: '⛷', category: 'Other symbols' },
+  { name: 'Ice skate', character: '⛸', category: 'Other symbols' },
+  { name: 'Carousel horse', character: '⛻', category: 'Other symbols' },
+  { name: 'Triangle flag on post', character: '⛼', category: 'Other symbols' },
+  { name: 'Japanese lantern', character: '⛾', category: 'Other symbols' },
+  {
+    name: 'Triangle with rounded corners',
+    character: '⛿',
+    category: 'Other symbols',
+  },
 
   // Others
-  '©', // Copyright
-  '®', // Registered
-  '™', // Trademark
-  '§', // Section
-  '¶', // Pilcrow
-  '•', // Bullet
-  '†', // Dagger
-  '‡', // Double dagger
-  '°', // Degree
-  '±', // Plus-minus
-  'µ', // Micro
-  '‖', // Double vertical line
-  '½', // Half
-  '¼', // Quarter
-  '¾', // Three quarters
-  '²', // Superscript two
-  '³', // Superscript three
-  '₁', // Subscript one
-  '₂', // Subscript two
-  '₃', // Subscript three
-  '℀', // Account of
-  '℁', // Addressed to the subject
-  'ℂ', // Double-struck capital C
-  '℅', // Care of
-  '℆', // Cada una
-  'ℇ', // Euler constant
-  '℉', // Fahrenheit
-  'ℊ', // Script small g
-  'ℋ', // Script capital H
-  'ℌ', // Black-letter capital H
-  'ℍ', // Double-struck capital H
-  'ℎ', // Planck constant
-  'ℏ', // Reduced Planck constant
-  'ℐ', // Script capital I
-  'ℑ', // Black-letter capital I
-  'ℒ', // Script capital L
-  'ℓ', // Script small L
-  '℔', // L b Bar
-  'ℕ', // Double-struck capital N
-  '№', // Numero sign
-  '℗', // Sound recording copyright
-  'ℙ', // Double-struck capital P
-  'ℚ', // Double-struck capital Q
-  'ℛ', // Double-struck capital R
-  'ℜ', // Black-letter capital R
-  'ℝ', // Double-struck capital R
-  '℞', // Prescription
-  '℟', // Response
-  '℠', // Service mark
-  '℡', // Telephone sign
-  '℣', // Versicle
-  'ℤ', // Double-struck capital Z
-  '℥', // Ounce
-  'Ω', // Ohm sign
-  '℧', // Inverted ohm sign
-  'ℨ', // Script capital Z
-  '℩', // Turned Greek small letter iota
-  'K', // Kelvin
-  'Å', // Angstrom sign
-  'ℬ', // Script capital B
-  'ℭ', // Black-letter capital C
-  '℮', // Estimated
-  'ℯ', // Script small e
-  'ℰ', // Script capital E
-  'ℱ', // Script capital F
-  'Ⅎ', // Turned capital F
-  'ℳ', // Script capital M
-  'ℴ', // Script small o
-  'ℵ', // Alef symbol
-  'ℶ', // Bet symbol
-  'ℷ', // Gimel symbol
-  'ℸ', // Dalet symbol
-  'ℹ', // Information source
-  '℺', // Turned capital Q
-  '℻', // Facsimile sign
-  'ℼ', // Pi
-  'ℽ', // Gamma
-  'ℾ', // Gamma
-  'ℿ', // Capital pi
-  '⅀', // Double-struck capital S
-  '⅁', // Turned sans-serif capital G
-  '⅂', // Sans-serif capital L
-  '⅃', // Reversed sans-serif capital L
-  '⅄', // Turned sans-serif capital Y
-  'ⅅ', // Double-struck capital D
-  'ⅆ', // Double-struck small d
-  'ⅇ', // Double-struck small e
-  'ⅈ', // Double-struck small i
-  'ⅉ', // Double-struck small j
-  '⅊', // Property line
-  '⅋', // Turned ampersand
-  '⅌', // Property line
-  '⅍', // Script capital I
-  'ⅎ', // Inverted capital N
-  'Ⅰ', // Roman numeral one
-  'Ⅱ', // Roman numeral two
-  'Ⅲ', // Roman numeral three
-  'Ⅳ', // Roman numeral four
-  'Ⅴ', // Roman numeral five
-  'Ⅵ', // Roman numeral six
-  'Ⅶ', // Roman numeral seven
-  'Ⅷ', // Roman numeral eight
-  'Ⅸ', // Roman numeral nine
-  'Ⅹ', // Roman numeral ten
-  'Ⅺ', // Roman numeral eleven
-  'Ⅻ', // Roman numeral twelve
-  'Ⅼ', // Roman numeral fifty
-  'Ⅽ', // Roman numeral one hundred
-  'Ⅾ', // Roman numeral five hundred
-  'Ⅿ', // Roman numeral one thousand
+  { name: 'Copyright', character: '©', category: 'Others' },
+  { name: 'Registered', character: '®', category: 'Others' },
+  { name: 'Trademark', character: '™', category: 'Others' },
+  { name: 'Section', character: '§', category: 'Others' },
+  { name: 'Pilcrow', character: '¶', category: 'Others' },
+  { name: 'Bullet', character: '•', category: 'Others' },
+  { name: 'Dagger', character: '†', category: 'Others' },
+  { name: 'Double dagger', character: '‡', category: 'Others' },
+  { name: 'Degree', character: '°', category: 'Others' },
+  { name: 'Plus-minus', character: '±', category: 'Others' },
+  { name: 'Micro', character: 'µ', category: 'Others' },
+  { name: 'Double vertical line', character: '‖', category: 'Others' },
+  { name: 'Half', character: '½', category: 'Others' },
+  { name: 'Quarter', character: '¼', category: 'Others' },
+  { name: 'Three quarters', character: '¾', category: 'Others' },
+  { name: 'Superscript two', character: '²', category: 'Others' },
+  { name: 'Superscript three', character: '³', category: 'Others' },
+  { name: 'Subscript one', character: '₁', category: 'Others' },
+  { name: 'Subscript two', character: '₂', category: 'Others' },
+  { name: 'Subscript three', character: '₃', category: 'Others' },
+  { name: 'Account of', character: '℀', category: 'Others' },
+  { name: 'Addressed to the subject', character: '℁', category: 'Others' },
+  { name: 'Double-struck capital C', character: 'ℂ', category: 'Others' },
+  { name: 'Care of', character: '℅', category: 'Others' },
+  { name: 'Cada una', character: '℆', category: 'Others' },
+  { name: 'Euler constant', character: 'ℇ', category: 'Others' },
+  { name: 'Fahrenheit', character: '℉', category: 'Others' },
+  { name: 'Script small g', character: 'ℊ', category: 'Others' },
+  { name: 'Script capital H', character: 'ℋ', category: 'Others' },
+  { name: 'Black-letter capital H', character: 'ℌ', category: 'Others' },
+  { name: 'Double-struck capital H', character: 'ℍ', category: 'Others' },
+  { name: 'Planck constant', character: 'ℎ', category: 'Others' },
+  { name: 'Reduced Planck constant', character: 'ℏ', category: 'Others' },
+  { name: 'Script capital I', character: 'ℐ', category: 'Others' },
+  { name: 'Black-letter capital I', character: 'ℑ', category: 'Others' },
+  { name: 'Script capital L', character: 'ℒ', category: 'Others' },
+  { name: 'Script small L', character: 'ℓ', category: 'Others' },
+  { name: 'L b Bar', character: '℔', category: 'Others' },
+  { name: 'Double-struck capital N', character: 'ℕ', category: 'Others' },
+  { name: 'Numero sign', character: '№', category: 'Others' },
+  { name: 'Sound recording copyright', character: '℗', category: 'Others' },
+  { name: 'Double-struck capital P', character: 'ℙ', category: 'Others' },
+  { name: 'Double-struck capital Q', character: 'ℚ', category: 'Others' },
+  { name: 'Double-struck capital R', character: 'ℛ', category: 'Others' },
+  { name: 'Black-letter capital R', character: 'ℜ', category: 'Others' },
+  { name: 'Double-struck capital R', character: 'ℝ', category: 'Others' },
+  { name: 'Prescription', character: '℞', category: 'Others' },
+  { name: 'Response', character: '℟', category: 'Others' },
+  { name: 'Service mark', character: '℠', category: 'Others' },
+  { name: 'Telephone sign', character: '℡', category: 'Others' },
+  { name: 'Versicle', character: '℣', category: 'Others' },
+  { name: 'Double-struck capital Z', character: 'ℤ', category: 'Others' },
+  { name: 'Ounce', character: '℥', category: 'Others' },
+  { name: 'Ohm sign', character: 'Ω', category: 'Others' },
+  { name: 'Inverted ohm sign', character: '℧', category: 'Others' },
+  { name: 'Script capital Z', character: 'ℨ', category: 'Others' },
+  {
+    name: 'Turned Greek small letter iota',
+    character: '℩',
+    category: 'Others',
+  },
+  { name: 'Kelvin', character: 'K', category: 'Others' },
+  { name: 'Angstrom sign', character: 'Å', category: 'Others' },
+  { name: 'Script capital B', character: 'ℬ', category: 'Others' },
+  { name: 'Black-letter capital C', character: 'ℭ', category: 'Others' },
+  { name: 'Estimated', character: '℮', category: 'Others' },
+  { name: 'Script small e', character: 'ℯ', category: 'Others' },
+  { name: 'Script capital E', character: 'ℰ', category: 'Others' },
+  { name: 'Script capital F', character: 'ℱ', category: 'Others' },
+  { name: 'Turned capital F', character: 'Ⅎ', category: 'Others' },
+  { name: 'Script capital M', character: 'ℳ', category: 'Others' },
+  { name: 'Script small o', character: 'ℴ', category: 'Others' },
+  { name: 'Alef symbol', character: 'ℵ', category: 'Others' },
+  { name: 'Bet symbol', character: 'ℶ', category: 'Others' },
+  { name: 'Gimel symbol', character: 'ℷ', category: 'Others' },
+  { name: 'Dalet symbol', character: 'ℸ', category: 'Others' },
+  { name: 'Information source', character: 'ℹ', category: 'Others' },
+  { name: 'Turned capital Q', character: '℺', category: 'Others' },
+  { name: 'Facsimile sign', character: '℻', category: 'Others' },
+  { name: 'Pi', character: 'ℼ', category: 'Others' },
+  { name: 'Gamma', character: 'ℽ', category: 'Others' },
+  { name: 'Gamma', character: 'ℾ', category: 'Others' },
+  { name: 'Capital pi', character: 'ℿ', category: 'Others' },
+  { name: 'Double-struck capital S', character: '⅀', category: 'Others' },
+  { name: 'Turned sans-serif capital G', character: '⅁', category: 'Others' },
+  { name: 'Sans-serif capital L', character: '⅂', category: 'Others' },
+  { name: 'Reversed sans-serif capital L', character: '⅃', category: 'Others' },
+  { name: 'Turned sans-serif capital Y', character: '⅄', category: 'Others' },
+  { name: 'Double-struck capital D', character: 'ⅅ', category: 'Others' },
+  { name: 'Double-struck small d', character: 'ⅆ', category: 'Others' },
+  { name: 'Double-struck small e', character: 'ⅇ', category: 'Others' },
+  { name: 'Double-struck small i', character: 'ⅈ', category: 'Others' },
+  { name: 'Double-struck small j', character: 'ⅉ', category: 'Others' },
+  { name: 'Property line', character: '⅊', category: 'Others' },
+  { name: 'Turned ampersand', character: '⅋', category: 'Others' },
+  { name: 'Property line', character: '⅌', category: 'Others' },
+  { name: 'Script capital I', character: '⅍', category: 'Others' },
+  { name: 'Inverted capital N', character: 'ⅎ', category: 'Others' },
+  { name: 'Roman numeral one', character: 'Ⅰ', category: 'Others' },
+  { name: 'Roman numeral two', character: 'Ⅱ', category: 'Others' },
+  { name: 'Roman numeral three', character: 'Ⅲ', category: 'Others' },
+  { name: 'Roman numeral four', character: 'Ⅳ', category: 'Others' },
+  { name: 'Roman numeral five', character: 'Ⅴ', category: 'Others' },
+  { name: 'Roman numeral six', character: 'Ⅵ', category: 'Others' },
+  { name: 'Roman numeral seven', character: 'Ⅶ', category: 'Others' },
+  { name: 'Roman numeral eight', character: 'Ⅷ', category: 'Others' },
+  { name: 'Roman numeral nine', character: 'Ⅸ', category: 'Others' },
+  { name: 'Roman numeral ten', character: 'Ⅹ', category: 'Others' },
+  { name: 'Roman numeral eleven', character: 'Ⅺ', category: 'Others' },
+  { name: 'Roman numeral twelve', character: 'Ⅻ', category: 'Others' },
+  { name: 'Roman numeral fifty', character: 'Ⅼ', category: 'Others' },
+  { name: 'Roman numeral one hundred', character: 'Ⅽ', category: 'Others' },
+  { name: 'Roman numeral five hundred', character: 'Ⅾ', category: 'Others' },
+  { name: 'Roman numeral one thousand', character: 'Ⅿ', category: 'Others' },
 ];

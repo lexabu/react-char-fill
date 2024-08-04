@@ -11,6 +11,7 @@ function App() {
   const [fillColor, setFillColor] = useState('#ffd700');
   const [fontSize, setFontSize] = useState(120);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   const handleCharacterChange = (e: {
     target: { value: React.SetStateAction<string> };
@@ -55,50 +56,29 @@ function App() {
     setSearchTerm(e.target.value);
   };
 
-  const filteredCharacters = characters.filter((char) => {
-    const ariaLabel = `Select symbol ${char}`;
-    return (
-      char.includes(searchTerm) ||
-      ariaLabel.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+  const handleCategoryClick = (category: React.SetStateAction<string>) => {
+    setSelectedCategory(category);
+  };
+
+  const filteredCharacters = characters.filter((charObj) => {
+    const { name, character, category } = charObj;
+    const matchesSearchTerm =
+      name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      character.includes(searchTerm) ||
+      category.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory
+      ? category === selectedCategory
+      : true;
+    return matchesSearchTerm && matchesCategory;
   });
+
+  const categories = [
+    ...new Set(characters.map((charObj) => charObj.category)),
+  ];
 
   return (
     <div className="app">
       <h1>Character Rating Test</h1>
-      <div className="rating-section">
-        <CharacterRating
-          rating={rating}
-          character={character}
-          maxRating={maxRating}
-          emptyColor={emptyColor}
-          fillColor={fillColor}
-          fontSize={`${fontSize}px`}
-        />
-      </div>
-      <div className="search-container">
-        <label>
-          Search Symbols:
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={handleSearchChange}
-            aria-label="Search Symbols"
-          />
-        </label>
-      </div>
-      <div className="symbol-container" role="menu">
-        {filteredCharacters.map((char) => (
-          <button
-            key={char}
-            className="symbol"
-            onClick={() => handleCharacterClick(char)}
-            aria-label={`Select symbol ${char}`}
-          >
-            {char}
-          </button>
-        ))}
-      </div>
       <div className="controls">
         <label>
           Rating:
@@ -119,9 +99,9 @@ function App() {
             onChange={handleCharacterChange}
             aria-label="Character"
           >
-            {filteredCharacters.map((char) => (
-              <option key={char} value={char}>
-                {char}
+            {filteredCharacters.map((charObj) => (
+              <option key={charObj.character} value={charObj.character}>
+                {charObj.character}
               </option>
             ))}
           </select>
@@ -164,6 +144,58 @@ function App() {
             aria-label="Font Size"
           />
         </label>
+      </div>
+      <div className="rating-section">
+        <CharacterRating
+          rating={rating}
+          character={character}
+          maxRating={maxRating}
+          emptyColor={emptyColor}
+          fillColor={fillColor}
+          fontSize={`${fontSize}px`}
+        />
+      </div>
+      <div className="search-container">
+        <label>
+          Search Symbols:
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            aria-label="Search Symbols"
+          />
+        </label>
+      </div>
+      <div className="category-controls">
+        {categories.map((category) => (
+          <button
+            key={category}
+            className={`category-button ${
+              selectedCategory === category ? 'active' : ''
+            }`}
+            onClick={() => handleCategoryClick(category)}
+          >
+            {category}
+          </button>
+        ))}
+        <button
+          className={`category-button ${selectedCategory === '' ? 'active' : ''}`}
+          onClick={() => handleCategoryClick('')}
+        >
+          All
+        </button>
+      </div>
+      <div className="symbol-container" role="menu">
+        {filteredCharacters.map((charObj) => (
+          <button
+            key={charObj.character}
+            className="symbol"
+            onClick={() => handleCharacterClick(charObj.character)}
+            aria-label={`Select symbol ${charObj.name}`}
+          >
+            {charObj.character}
+          </button>
+        ))}
       </div>
     </div>
   );

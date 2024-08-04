@@ -34,6 +34,29 @@ h1 {
   margin-bottom: 1rem;
 }
 
+.category-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.category-button {
+  cursor: pointer;
+  background: none;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+}
+
+.category-button.active {
+  background-color: #555;
+}
+
 .symbol-container {
   display: flex;
   flex-wrap: wrap;
