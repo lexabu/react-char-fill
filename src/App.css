@@ -30,6 +30,10 @@ h1 {
   width: 90%;
 }
 
+.search-container {
+  margin-bottom: 1rem;
+}
+
 .symbol-container {
   display: flex;
   flex-wrap: wrap;

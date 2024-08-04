@@ -10,6 +10,7 @@ function App() {
   const [emptyColor, setEmptyColor] = useState('#808080');
   const [fillColor, setFillColor] = useState('#ffd700');
   const [fontSize, setFontSize] = useState(120);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleCharacterChange = (e: {
     target: { value: React.SetStateAction<string> };
@@ -48,6 +49,20 @@ function App() {
     setCharacter(char);
   };
 
+  const handleSearchChange = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredCharacters = characters.filter((char) => {
+    const ariaLabel = `Select symbol ${char}`;
+    return (
+      char.includes(searchTerm) ||
+      ariaLabel.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+
   return (
     <div className="app">
       <h1>Character Rating Test</h1>
@@ -61,8 +76,19 @@ function App() {
           fontSize={`${fontSize}px`}
         />
       </div>
+      <div className="search-container">
+        <label>
+          Search Symbols:
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            aria-label="Search Symbols"
+          />
+        </label>
+      </div>
       <div className="symbol-container" role="menu">
-        {characters.map((char) => (
+        {filteredCharacters.map((char) => (
           <button
             key={char}
             className="symbol"
@@ -93,7 +119,7 @@ function App() {
             onChange={handleCharacterChange}
             aria-label="Character"
           >
-            {characters.map((char) => (
+            {filteredCharacters.map((char) => (
               <option key={char} value={char}>
                 {char}
               </option>

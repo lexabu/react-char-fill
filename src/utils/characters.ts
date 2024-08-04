@@ -1,12 +1,12 @@
 export const characters = [
-  // Stars
+  // Stars Category
   '★', // Black star
   '☆', // White star
   '✪', // Star with shadow
   '✰', // Star
 
-  // Currency
-  '$', // Dollar
+  // Currency Category
+  '$', // Dollar sign
   '¢', // Cent sign
   '£', // Pound sign
   '¥', // Yen sign
@@ -30,29 +30,29 @@ export const characters = [
   '₽', // Ruble sign
   '₾', // Lari sign
 
-  // Basic symbols
-  '#', // Hash
-  '@', // At
-  '!', // Exclamation
-  '%', // Percent
-  '&', // Ampersand
-  '*', // Asterisk
-  '+', // Plus
-  '-', // Minus
-  '=', // Equals
-  '^', // Caret
-  '_', // Underscore
-  '~', // Tilde
-  '.', // Period
-  ',', // Comma
-  ':', // Colon
-  ';', // Semicolon
-  '"', // Double quote
-  "'", // Single quote
-  '`', // Backtick
+  // Basic symbols Category
+  '#', // Hash symbol
+  '@', // At symbol
+  '!', // Exclamation mark symbol
+  '%', // Percent symbol
+  '&', // Ampersand symbol
+  '*', // Asterisk symbol
+  '+', // Plus symbol
+  '-', // Minus symbol
+  '=', // Equals symbol
+  '^', // Caret symbol
+  '_', // Underscore symbol
+  '~', // Tilde symbol
+  '.', // Period symbol
+  ',', // Comma symbol
+  ':', // Colon symbol
+  ';', // Semicolon symbol
+  '"', // Double quote symbol
+  "'", // Single quote symbol
+  '`', // Backtick symbol
 
   // Punctuation
-  '?', // Question
+  '?', // Question mark symbol
   '(', // Open parenthesis
   ')', // Close parenthesis
   '[', // Open bracket
@@ -62,7 +62,6 @@ export const characters = [
   '<', // Less than
   '>', // Greater than
   '/', // Slash
-  '\\', // Backslash
   '|', // Vertical bar
 
   // Shapes
@@ -121,7 +120,6 @@ export const characters = [
   '♼', // Recycled paper symbol
   '♽', // Partially recycled paper symbol
   '♾', // Permanent paper sign
-  // '♿', // Wheelchair symbol // Conflicts with emoji
   '⚀', // Die face-1
   '⚁', // Die face-2
   '⚂', // Die face-3
@@ -149,7 +147,6 @@ export const characters = [
   '⚞', // Three lines converging right
   '⚟', // Three lines converging left
   '⚠', // Warning
-  // '⚡', // High voltage // Conflicts with emoji
   '⚢', // Doubled female sign
   '⚣', // Doubled male sign
   '⚤', // Interlocked male and female sign
