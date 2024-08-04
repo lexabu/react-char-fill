@@ -120,10 +120,10 @@ const Controls: React.FC<ControlsProps> = ({
         Step:
         <input
           type="number"
-          step="0.01"
+          step="0.1"
           value={step}
           onChange={onStepChange}
-          min="0.01"
+          min="0.0"
           aria-label="Step"
         />
       </label>

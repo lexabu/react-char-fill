@@ -60,7 +60,6 @@ const CharacterFill: React.FC<CharacterFillProps> = ({
           fontSize,
           lineHeight: fontSize, // Ensure the line-height matches the font-size
           boxSizing: 'border-box',
-          border: '1px solid red',
           verticalAlign: 'middle',
         }}
       >

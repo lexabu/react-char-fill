@@ -21,17 +21,22 @@ function App() {
   const [currentRating, setCurrentRating] = useState(2.5);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionMessage, setSubmissionMessage] = useState('');
+  const [timer, setTimer] = useState<number | null>(null);
 
   useEffect(() => {
-    let timer: number;
     if (isSubmitting) {
       setSubmissionMessage('Rating submitted!');
-      timer = setTimeout(() => {
+      const timeoutId = window.setTimeout(() => {
         setIsSubmitting(false);
         setSubmissionMessage('');
       }, 2000);
+      setTimer(timeoutId);
     }
-    return () => clearTimeout(timer);
+    return () => {
+      if (timer !== null) {
+        clearTimeout(timer);
+      }
+    };
   }, [isSubmitting]);
 
   const handleCharacterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
