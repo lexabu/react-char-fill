@@ -59,7 +59,7 @@ const App = () => {
   return (
     <CharacterRating
       rating={4.2}
-      character="⭐"
+      character="☆"
       maxRating={10}
       emptyColor="#e0e0e0"
       fillColor="#ffeb3b"
@@ -79,7 +79,7 @@ A component to display a rating using characters.
 #### Props
 
 - `rating` (number, required): The current rating value.
-- `character` (string, required): The character used to represent the rating.
+- `character` (string, required): The character used to represent the rating. This can be any character shown in utils/characters.ts
 - `maxRating` (number, required): The maximum rating value.
 - `emptyColor` (string, optional): The color for the empty rating characters. Default is `lightgray`.
 - `fillColor` (string, optional): The color for the filled rating characters. Default is `gray`.

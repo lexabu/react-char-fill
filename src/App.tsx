@@ -1,38 +1,12 @@
 import React, { useState } from 'react';
 import CharacterRating from './CharacterRating/CharacterRating';
 import './App.css';
+import { characters } from './utils/characters';
 
 function App() {
   const [rating, setRating] = useState(3);
   const [character, setCharacter] = useState('★');
   const [maxRating, setMaxRating] = useState(5);
-  const characters = [
-    '★',
-    '☆',
-    '✪',
-    '✰',
-    '$',
-    '#',
-    '@',
-    '!',
-    '%',
-    '&',
-    '✦',
-    '✧',
-    '⭑',
-    '◆',
-    '◇',
-    '◉',
-    '○',
-    '◎',
-    '●',
-    '■',
-    '□',
-    '▲',
-    '△',
-    '▼',
-    '▽',
-  ];
 
   const handleCharacterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCharacter(e.target.value);
