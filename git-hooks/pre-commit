@@ -1,0 +1,44 @@
+#!/bin/bash
+RED="\033[1;31m"
+GREEN="\033[1;32m"
+NC="\033[0m"
+
+# Function to stage the files
+function add_files_to_staged_tree() {
+    files_paths=("$@")
+    if [[ -n "${files_paths// /}" ]]; then
+        git add $files_paths
+    fi
+}
+
+# Get the list of staged files
+staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|jsx|ts|tsx)$')
+
+if [[ -z "$staged_files" ]]; then
+    echo "No JavaScript/TypeScript files to lint."
+    exit 0
+fi
+
+echo "Running ESLint..."
+./node_modules/.bin/eslint --fix $staged_files
+eslint_exit_code=$?
+
+if [ $eslint_exit_code -ne 0 ]; then
+    echo -e "${RED}ESLint found issues that could not be fixed automatically.${NC}"
+    exit 1
+fi
+
+echo "Running Prettier..."
+./node_modules/.bin/prettier --write $staged_files
+prettier_exit_code=$?
+
+if [ $prettier_exit_code -ne 0 ]; then
+    echo -e "${RED}Prettier found issues that could not be fixed automatically.${NC}"
+    exit 1
+fi
+
+# Re-stage files after formatting
+add_files_to_staged_tree $staged_files
+
+echo -e "${GREEN}All linting and formatting checks passed!${NC}"
+exit 0
