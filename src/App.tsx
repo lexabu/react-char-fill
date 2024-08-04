@@ -12,6 +12,8 @@ function App() {
   const [fontSize, setFontSize] = useState(120);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [interactive, setInteractive] = useState(true);
+  const [step, setStep] = useState(0.25);
 
   const handleCharacterChange = (e: {
     target: { value: React.SetStateAction<string> };
@@ -60,6 +62,62 @@ function App() {
     setSelectedCategory(category);
   };
 
+  const handleInteractiveToggle = () => {
+    setInteractive((prev) => !prev);
+  };
+
+  const calculateRating = (
+    position: number,
+    event:
+      | React.MouseEvent<HTMLButtonElement>
+      | React.KeyboardEvent<HTMLButtonElement>,
+    target: HTMLElement,
+  ) => {
+    const rect = target.getBoundingClientRect();
+    let x: number;
+
+    if ('clientX' in event) {
+      // It's a MouseEvent
+      x = event.clientX - rect.left;
+    } else {
+      // It's a KeyboardEvent
+      x = rect.width / 2; // Approximate center for keyboard events
+    }
+
+    const width = rect.width;
+    let newRating = position - 1 + x / width;
+
+    // Snap to nearest step
+    newRating = Math.round(newRating / step) * step;
+    return newRating;
+  };
+
+  const handleMouseMove = (
+    position: number,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => {
+    const newRating = calculateRating(position, event, event.currentTarget);
+    setRating(newRating);
+  };
+
+  const handleClick = (
+    position: number,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => {
+    const newRating = calculateRating(position, event, event.currentTarget);
+    setRating(newRating);
+  };
+
+  const handleKeyDown = (
+    position: number,
+    event: React.KeyboardEvent<HTMLButtonElement>,
+  ) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      const newRating = calculateRating(position, event, event.currentTarget);
+      setRating(newRating);
+    }
+  };
+
   const filteredCharacters = characters.filter((charObj) => {
     const { name, character, categories } = charObj;
     const matchesSearchTerm =
@@ -86,7 +144,7 @@ function App() {
           Rating:
           <input
             type="number"
-            step="0.25"
+            step={step}
             value={rating}
             onChange={handleRatingChange}
             min="0"
@@ -146,6 +204,26 @@ function App() {
             aria-label="Font Size"
           />
         </label>
+        <label>
+          Interactive:
+          <input
+            type="checkbox"
+            checked={interactive}
+            onChange={handleInteractiveToggle}
+            aria-label="Toggle Interactive"
+          />
+        </label>
+        <label>
+          Step:
+          <input
+            type="number"
+            step="0.01"
+            value={step}
+            onChange={(e) => setStep(parseFloat(e.target.value))}
+            min="0.01"
+            aria-label="Step"
+          />
+        </label>
       </div>
       <div className="rating-section">
         <CharacterRating
@@ -155,6 +233,11 @@ function App() {
           emptyColor={emptyColor}
           fillColor={fillColor}
           fontSize={`${fontSize}px`}
+          interactive={interactive}
+          step={step}
+          onMouseMove={handleMouseMove}
+          onClick={handleClick}
+          onKeyDown={handleKeyDown}
         />
       </div>
       <div className="search-container">

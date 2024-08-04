@@ -8,6 +8,20 @@ interface CharacterRatingProps {
   emptyColor?: string;
   fillColor?: string;
   fontSize?: string;
+  interactive?: boolean;
+  step: number;
+  onMouseMove?: (
+    position: number,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => void;
+  onClick?: (
+    position: number,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => void;
+  onKeyDown?: (
+    position: number,
+    event: React.KeyboardEvent<HTMLButtonElement>,
+  ) => void;
 }
 
 const CharacterRating: React.FC<CharacterRatingProps> = ({
@@ -17,6 +31,11 @@ const CharacterRating: React.FC<CharacterRatingProps> = ({
   emptyColor,
   fillColor,
   fontSize,
+  interactive = true,
+  step,
+  onMouseMove,
+  onClick,
+  onKeyDown,
 }) => {
   return (
     <span>
@@ -29,6 +48,10 @@ const CharacterRating: React.FC<CharacterRatingProps> = ({
           emptyColor={emptyColor}
           fillColor={fillColor}
           fontSize={fontSize}
+          step={step}
+          onMouseMove={interactive ? onMouseMove : undefined}
+          onClick={interactive ? onClick : undefined}
+          onKeyDown={interactive ? onKeyDown : undefined}
         />
       ))}
     </span>
