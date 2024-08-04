@@ -67,12 +67,11 @@ function App() {
   };
 
   const calculateRating = (
-    position: number,
     event:
-      | React.MouseEvent<HTMLButtonElement>
-      | React.KeyboardEvent<HTMLButtonElement>,
-    target: HTMLElement,
+      | React.MouseEvent<HTMLSpanElement>
+      | React.KeyboardEvent<HTMLSpanElement>,
   ) => {
+    const target = event.currentTarget;
     const rect = target.getBoundingClientRect();
     let x: number;
 
@@ -85,35 +84,41 @@ function App() {
     }
 
     const width = rect.width;
-    let newRating = position - 1 + x / width;
+    let newRating = (x / width) * maxRating;
 
     // Snap to nearest step
     newRating = Math.round(newRating / step) * step;
     return newRating;
   };
 
-  const handleMouseMove = (
-    position: number,
-    event: React.MouseEvent<HTMLButtonElement>,
-  ) => {
-    const newRating = calculateRating(position, event, event.currentTarget);
+  const handleMouseMove = (event: React.MouseEvent<HTMLSpanElement>) => {
+    if (!interactive) return;
+    const newRating = calculateRating(event);
     setRating(newRating);
   };
 
-  const handleClick = (
-    position: number,
-    event: React.MouseEvent<HTMLButtonElement>,
-  ) => {
-    const newRating = calculateRating(position, event, event.currentTarget);
+  const handleClick = (event: React.MouseEvent<HTMLSpanElement>) => {
+    if (!interactive) return;
+    const newRating = calculateRating(event);
     setRating(newRating);
+    console.log('Rating submitted:', newRating);
   };
 
-  const handleKeyDown = (
-    position: number,
-    event: React.KeyboardEvent<HTMLButtonElement>,
-  ) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLSpanElement>) => {
+    if (!interactive) return;
     if (event.key === 'Enter' || event.key === ' ') {
-      const newRating = calculateRating(position, event, event.currentTarget);
+      const newRating = calculateRating(event);
+      setRating(newRating);
+      console.log('Rating submitted:', newRating);
+    } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      let newRating = rating;
+
+      if (event.key === 'ArrowLeft') {
+        newRating = Math.max(0, rating - step);
+      } else if (event.key === 'ArrowRight') {
+        newRating = Math.min(maxRating, rating + step);
+      }
+
       setRating(newRating);
     }
   };

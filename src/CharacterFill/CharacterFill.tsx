@@ -9,18 +9,6 @@ interface CharacterFillProps {
   fillColor?: string;
   fontSize?: string;
   step: number;
-  onMouseMove?: (
-    position: number,
-    event: React.MouseEvent<HTMLButtonElement>,
-  ) => void;
-  onClick?: (
-    position: number,
-    event: React.MouseEvent<HTMLButtonElement>,
-  ) => void;
-  onKeyDown?: (
-    position: number,
-    event: React.KeyboardEvent<HTMLButtonElement>,
-  ) => void;
 }
 
 const CharacterFill: React.FC<CharacterFillProps> = ({
@@ -31,28 +19,22 @@ const CharacterFill: React.FC<CharacterFillProps> = ({
   fillColor = 'gold',
   fontSize = '24px',
   step,
-  onMouseMove,
-  onClick,
-  onKeyDown,
 }) => {
   const width = determineWidth(position, rating, step);
 
   return (
-    <button
+    <span
       style={{
         position: 'relative',
         display: 'inline-flex',
         background: 'none',
         border: 'none',
-        cursor: onClick ? 'pointer' : 'default',
+        cursor: 'default',
         padding: 0,
         outline: 'none',
       }}
-      onMouseMove={(e) => onMouseMove && onMouseMove(position, e)}
-      onClick={(e) => onClick && onClick(position, e)}
-      onKeyDown={(e) => onKeyDown && onKeyDown(position, e)}
       aria-label={`Rate ${position}`}
-      disabled={!onClick}
+      className="rating-symbol"
     >
       <span
         style={{
@@ -77,7 +59,7 @@ const CharacterFill: React.FC<CharacterFillProps> = ({
       >
         {character}
       </span>
-    </button>
+    </span>
   );
 };
 

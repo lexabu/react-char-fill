@@ -10,18 +10,9 @@ interface CharacterRatingProps {
   fontSize?: string;
   interactive?: boolean;
   step: number;
-  onMouseMove?: (
-    position: number,
-    event: React.MouseEvent<HTMLButtonElement>,
-  ) => void;
-  onClick?: (
-    position: number,
-    event: React.MouseEvent<HTMLButtonElement>,
-  ) => void;
-  onKeyDown?: (
-    position: number,
-    event: React.KeyboardEvent<HTMLButtonElement>,
-  ) => void;
+  onMouseMove?: (event: React.MouseEvent<HTMLSpanElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLSpanElement>) => void;
 }
 
 const CharacterRating: React.FC<CharacterRatingProps> = ({
@@ -38,7 +29,18 @@ const CharacterRating: React.FC<CharacterRatingProps> = ({
   onKeyDown,
 }) => {
   return (
-    <span>
+    <span
+      tabIndex={0}
+      className="rating-span"
+      onMouseMove={interactive ? onMouseMove : undefined}
+      onClick={interactive ? onClick : undefined}
+      onKeyDown={interactive ? onKeyDown : undefined}
+      role="slider"
+      aria-valuenow={rating}
+      aria-valuemin={0}
+      aria-valuemax={maxRating}
+      aria-label="Character rating"
+    >
       {[...Array(maxRating)].map((_, index) => (
         <CharacterFill
           key={index + 1}
@@ -49,9 +51,6 @@ const CharacterRating: React.FC<CharacterRatingProps> = ({
           fillColor={fillColor}
           fontSize={fontSize}
           step={step}
-          onMouseMove={interactive ? onMouseMove : undefined}
-          onClick={interactive ? onClick : undefined}
-          onKeyDown={interactive ? onKeyDown : undefined}
         />
       ))}
     </span>

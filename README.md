@@ -40,6 +40,7 @@ const App = () => {
       maxRating={5}
       emptyColor="lightgray"
       fillColor="gold"
+      interactive={false}
     />
   );
 };
