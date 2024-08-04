@@ -65,7 +65,7 @@ function App() {
     const matchesSearchTerm =
       name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       character.includes(searchTerm) ||
-      categories.some((cat: string) =>
+      categories.some((cat) =>
         cat.toLowerCase().includes(searchTerm.toLowerCase()),
       );
     const matchesCategory = selectedCategory
@@ -194,6 +194,7 @@ function App() {
             className="symbol"
             onClick={() => handleCharacterClick(charObj.character)}
             aria-label={`Select symbol ${charObj.name}`}
+            title={charObj.name}
           >
             {charObj.character}
           </button>
