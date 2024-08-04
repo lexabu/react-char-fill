@@ -4,12 +4,12 @@ import './App.css';
 import { characters } from './utils/characters';
 
 function App() {
-  const [rating, setRating] = useState(3);
-  const [character, setCharacter] = useState('★');
+  const [rating, setRating] = useState(2.5);
+  const [character, setCharacter] = useState('♣');
   const [maxRating, setMaxRating] = useState(5);
   const [emptyColor, setEmptyColor] = useState('#808080');
   const [fillColor, setFillColor] = useState('#ffd700');
-  const [fontSize, setFontSize] = useState(24);
+  const [fontSize, setFontSize] = useState(120);
 
   const handleCharacterChange = (e: {
     target: { value: React.SetStateAction<string> };
@@ -39,7 +39,7 @@ function App() {
 
   const handleFontSizeChange = (e: { target: { value: string } }) => {
     const value = parseInt(e.target.value, 10);
-    if (value >= 2 && value <= 200) {
+    if (value >= 4 && value <= 180) {
       setFontSize(value);
     }
   };
@@ -72,8 +72,8 @@ function App() {
         <label>
           Character:
           <select value={character} onChange={handleCharacterChange}>
-            {characters.map((char) => (
-              <option key={char} value={char}>
+            {characters.map((char, index) => (
+              <option key={index + 1000} value={char}>
                 {char}
               </option>
             ))}
