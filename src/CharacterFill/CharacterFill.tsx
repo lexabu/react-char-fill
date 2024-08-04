@@ -1,7 +1,5 @@
 import React from 'react';
-import './CharacterFill.css';
-import determineFillType from '../utils/determineFillType';
-import getWidth from '../utils/getWidth';
+import determineWidth from '../utils/determineWidth';
 
 interface CharacterFillProps {
   position: number;
@@ -9,38 +7,36 @@ interface CharacterFillProps {
   character: string;
   emptyColor?: string;
   fillColor?: string;
+  fontSize?: string;
 }
 
 const CharacterFill: React.FC<CharacterFillProps> = ({
   position,
   rating,
   character,
-  emptyColor,
-  fillColor,
+  emptyColor = 'grey',
+  fillColor = 'gold',
+  fontSize = '24px',
 }) => {
-  const className = determineFillType(position, rating);
-  const width = getWidth(className);
+  const width = determineWidth(position, rating);
 
   return (
-    <div
-      className={`char ${className}`}
-      data-char={character}
-      style={{ color: emptyColor }}
-    >
+    <span style={{ position: 'relative', display: 'inline-block' }}>
+      <span style={{ color: emptyColor, fontSize }}>{character}</span>
       <span
         style={{
+          top: 0,
+          left: 0,
           position: 'absolute',
           color: fillColor,
           overflow: 'hidden',
-          top: 0,
-          left: 0,
-          width: width,
+          width,
+          fontSize,
         }}
       >
         {character}
       </span>
-      {character}
-    </div>
+    </span>
   );
 };
 
