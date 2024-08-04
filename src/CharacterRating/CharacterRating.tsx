@@ -7,6 +7,7 @@ interface CharacterRatingProps {
   maxRating: number;
   emptyColor?: string;
   fillColor?: string;
+  fontSize?: string;
 }
 
 const CharacterRating: React.FC<CharacterRatingProps> = ({
@@ -15,6 +16,7 @@ const CharacterRating: React.FC<CharacterRatingProps> = ({
   maxRating,
   emptyColor,
   fillColor,
+  fontSize,
 }) => {
   return (
     <span>
@@ -26,6 +28,7 @@ const CharacterRating: React.FC<CharacterRatingProps> = ({
           character={character}
           emptyColor={emptyColor}
           fillColor={fillColor}
+          fontSize={fontSize}
         />
       ))}
     </span>
