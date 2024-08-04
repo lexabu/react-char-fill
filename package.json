@@ -16,7 +16,8 @@
     "format": "prettier --write .",
     "preview": "vite preview",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "test": "jest"
+    "test": "cypress",
+    "cypress": "npx cypress open"
   },
   "dependencies": {
     "react": "^18.3.1",
