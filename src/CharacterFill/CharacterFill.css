@@ -1,5 +1,5 @@
 .char {
-  color: whitesmoke;
+  color: lightgray; /* Generic default empty color */
   display: inline-block;
   font-size: 20px;
   line-height: 1;
@@ -7,7 +7,7 @@
 }
 
 .char:after {
-  color: #7d9c88;
+  color: gray; /* Generic default fill color */
   content: attr(data-char);
   left: 0;
   overflow: hidden;
