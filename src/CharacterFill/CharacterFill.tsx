@@ -21,8 +21,16 @@ const CharacterFill: React.FC<CharacterFillProps> = ({
   const width = determineWidth(position, rating);
 
   return (
-    <span style={{ position: 'relative', display: 'inline-block' }}>
-      <span style={{ color: emptyColor, fontSize }}>{character}</span>
+    <span style={{ position: 'relative', display: 'inline-flex' }}>
+      <span
+        style={{
+          color: emptyColor,
+          fontSize,
+          boxSizing: 'border-box',
+        }}
+      >
+        {character}
+      </span>
       <span
         style={{
           top: 0,
@@ -32,6 +40,7 @@ const CharacterFill: React.FC<CharacterFillProps> = ({
           overflow: 'hidden',
           width,
           fontSize,
+          boxSizing: 'border-box',
         }}
       >
         {character}

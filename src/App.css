@@ -6,6 +6,9 @@
 .rating-section {
   margin: 1rem 0;
   height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .controls {
