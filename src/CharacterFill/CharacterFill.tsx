@@ -29,7 +29,7 @@ const CharacterFill: React.FC<CharacterFillProps> = ({
         display: 'inline-flex',
         background: 'none',
         border: 'none',
-        cursor: 'default',
+        cursor: 'inherit', // Inherit cursor style from parent
         padding: 0,
         outline: 'none',
       }}

@@ -40,6 +40,7 @@ const CharacterRating: React.FC<CharacterRatingProps> = ({
       aria-valuemin={0}
       aria-valuemax={maxRating}
       aria-label="Character rating"
+      style={{ cursor: interactive ? 'pointer' : 'default' }} // Adjust cursor style
     >
       {[...Array(maxRating)].map((_, index) => (
         <CharacterFill
