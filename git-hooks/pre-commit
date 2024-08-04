@@ -7,7 +7,7 @@ NC="\033[0m"
 function add_files_to_staged_tree() {
     files_paths=("$@")
     if [[ -n "${files_paths// /}" ]]; then
-        git add $files_paths
+        git add "$files_paths"
     fi
 }
 
@@ -20,7 +20,7 @@ if [[ -z "$staged_files" ]]; then
 fi
 
 echo "Running ESLint..."
-./node_modules/.bin/eslint --fix $staged_files
+./node_modules/.bin/eslint --fix "$staged_files"
 eslint_exit_code=$?
 
 if [ $eslint_exit_code -ne 0 ]; then
@@ -29,7 +29,7 @@ if [ $eslint_exit_code -ne 0 ]; then
 fi
 
 echo "Running Prettier..."
-./node_modules/.bin/prettier --write $staged_files
+./node_modules/.bin/prettier --write "$staged_files"
 prettier_exit_code=$?
 
 if [ $prettier_exit_code -ne 0 ]; then
@@ -38,7 +38,7 @@ if [ $prettier_exit_code -ne 0 ]; then
 fi
 
 # Re-stage files after formatting
-add_files_to_staged_tree $staged_files
+add_files_to_staged_tree "$staged_files"
 
 echo -e "${GREEN}All linting and formatting checks passed!${NC}"
 exit 0
