@@ -1,4 +1,3 @@
-import React from 'react';
 import CharacterFill from '../CharacterFill/CharacterFill';
 
 interface CharacterRatingProps {
@@ -10,9 +9,9 @@ interface CharacterRatingProps {
   fontSize?: string;
   interactive?: boolean;
   step: number;
-  onMouseMove?: (event: React.MouseEvent<HTMLSpanElement>) => void;
-  onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
-  onKeyDown?: (event: React.KeyboardEvent<HTMLSpanElement>) => void;
+  onMouseMove?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
 const CharacterRating: React.FC<CharacterRatingProps> = ({
@@ -29,9 +28,9 @@ const CharacterRating: React.FC<CharacterRatingProps> = ({
   onKeyDown,
 }) => {
   return (
-    <span
+    <div
       tabIndex={0}
-      className="rating-span"
+      className="rating-container"
       onMouseMove={interactive ? onMouseMove : undefined}
       onClick={interactive ? onClick : undefined}
       onKeyDown={interactive ? onKeyDown : undefined}
@@ -53,7 +52,7 @@ const CharacterRating: React.FC<CharacterRatingProps> = ({
           step={step}
         />
       ))}
-    </span>
+    </div>
   );
 };
 

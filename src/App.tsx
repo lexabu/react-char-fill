@@ -14,6 +14,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [interactive, setInteractive] = useState(true);
   const [step, setStep] = useState(0.25);
+  const [currentRating, setCurrentRating] = useState(2.5);
 
   const handleCharacterChange = (e: {
     target: { value: React.SetStateAction<string> };
@@ -66,10 +67,19 @@ function App() {
     setInteractive((prev) => !prev);
   };
 
+  const handleInteractiveKeyDown = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+  ) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      setInteractive((prev) => !prev);
+    }
+  };
+
   const calculateRating = (
     event:
-      | React.MouseEvent<HTMLSpanElement>
-      | React.KeyboardEvent<HTMLSpanElement>,
+      | React.MouseEvent<HTMLDivElement>
+      | React.KeyboardEvent<HTMLDivElement>,
+    currentRating: number,
   ) => {
     const target = event.currentTarget;
     const rect = target.getBoundingClientRect();
@@ -80,7 +90,7 @@ function App() {
       x = event.clientX - rect.left;
     } else {
       // It's a KeyboardEvent
-      x = rect.width / 2; // Approximate center for keyboard events
+      x = (currentRating / maxRating) * rect.width;
     }
 
     const width = rect.width;
@@ -91,35 +101,34 @@ function App() {
     return newRating;
   };
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLSpanElement>) => {
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!interactive) return;
-    const newRating = calculateRating(event);
-    setRating(newRating);
+    const newRating = calculateRating(event, currentRating);
+    setCurrentRating(newRating);
   };
 
-  const handleClick = (event: React.MouseEvent<HTMLSpanElement>) => {
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!interactive) return;
-    const newRating = calculateRating(event);
+    const newRating = calculateRating(event, currentRating);
     setRating(newRating);
     console.log('Rating submitted:', newRating);
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLSpanElement>) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (!interactive) return;
     if (event.key === 'Enter' || event.key === ' ') {
-      const newRating = calculateRating(event);
-      setRating(newRating);
-      console.log('Rating submitted:', newRating);
+      setRating(currentRating);
+      console.log('Rating submitted:', currentRating);
     } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-      let newRating = rating;
+      let newRating = currentRating;
 
       if (event.key === 'ArrowLeft') {
-        newRating = Math.max(0, rating - step);
+        newRating = Math.max(0, currentRating - step);
       } else if (event.key === 'ArrowRight') {
-        newRating = Math.min(maxRating, rating + step);
+        newRating = Math.min(maxRating, currentRating + step);
       }
 
-      setRating(newRating);
+      setCurrentRating(newRating);
     }
   };
 
@@ -215,6 +224,7 @@ function App() {
             type="checkbox"
             checked={interactive}
             onChange={handleInteractiveToggle}
+            onKeyDown={handleInteractiveKeyDown}
             aria-label="Toggle Interactive"
           />
         </label>
@@ -232,7 +242,7 @@ function App() {
       </div>
       <div className="rating-section">
         <CharacterRating
-          rating={rating}
+          rating={currentRating}
           character={character}
           maxRating={maxRating}
           emptyColor={emptyColor}
