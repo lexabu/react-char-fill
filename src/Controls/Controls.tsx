@@ -61,7 +61,7 @@ const Controls: React.FC<ControlsProps> = ({
           onChange={onCharacterChange}
           aria-label="Character"
         >
-          {characters.map((char) => (
+          {characters.map(char => (
             <option key={char.character} value={char.character}>
               {char.character}
             </option>

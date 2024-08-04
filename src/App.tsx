@@ -37,6 +37,7 @@ function App() {
         clearTimeout(timer);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSubmitting]);
 
   const handleCharacterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -80,14 +81,14 @@ function App() {
   };
 
   const handleInteractiveToggle = () => {
-    setInteractive((prev) => !prev);
+    setInteractive(prev => !prev);
   };
 
   const handleInteractiveKeyDown = (
     e: React.KeyboardEvent<HTMLInputElement>,
   ) => {
     if (e.key === 'Enter' || e.key === ' ') {
-      setInteractive((prev) => !prev);
+      setInteractive(prev => !prev);
     }
   };
 
@@ -151,12 +152,12 @@ function App() {
     }
   };
 
-  const filteredCharacters = characters.filter((charObj) => {
+  const filteredCharacters = characters.filter(charObj => {
     const { name, character, categories } = charObj;
     const matchesSearchTerm =
       name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       character.includes(searchTerm) ||
-      categories.some((cat) =>
+      categories.some(cat =>
         cat.toLowerCase().includes(searchTerm.toLowerCase()),
       );
     const matchesCategory = selectedCategory
@@ -166,7 +167,7 @@ function App() {
   });
 
   const categories = [
-    ...new Set(characters.flatMap((charObj) => charObj.categories)),
+    ...new Set(characters.flatMap(charObj => charObj.categories)),
   ];
 
   return (
@@ -190,7 +191,7 @@ function App() {
         onFontSizeChange={handleFontSizeChange}
         onInteractiveToggle={handleInteractiveToggle}
         onInteractiveKeyDown={handleInteractiveKeyDown}
-        onStepChange={(e) => setStep(parseFloat(e.target.value))}
+        onStepChange={e => setStep(parseFloat(e.target.value))}
       />
       <div className="rating-section">
         <CharacterRating
@@ -225,7 +226,7 @@ function App() {
         onCategoryClick={handleCategoryClick}
       />
       <div className="symbol-container" role="menu">
-        {filteredCharacters.map((charObj) => (
+        {filteredCharacters.map(charObj => (
           <button
             key={charObj.character}
             className="symbol"

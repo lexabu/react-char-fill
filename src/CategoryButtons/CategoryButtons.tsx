@@ -12,7 +12,7 @@ const CategoryButtons: React.FC<CategoryButtonsProps> = ({
 }) => {
   return (
     <div className="category-controls">
-      {categories.map((category) => (
+      {categories.map(category => (
         <button
           key={category}
           className={`category-button ${

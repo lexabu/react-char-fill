@@ -1,26 +1,20 @@
-# Character Rating Component
+# React Char Fill
 
-A React component library for displaying character-based ratings.
+A versatile React component library for creating flexible character-based ratings, perfect for star ratings and other similar use cases.
 
 ## Installation
 
 To install the package, use npm, yarn, or bun:
 
-```bash
-npm install character-rating-component
-```
+npm install react-char-fill
 
 or
 
-```bash
-yarn add character-rating-component
-```
+yarn add react-char-fill
 
 or
 
-```bash
-bun add character-rating-component
-```
+bun add react-char-fill
 
 ## Usage
 
@@ -28,48 +22,48 @@ bun add character-rating-component
 
 Here is a basic example of how to use the `CharacterRating` component:
 
-```tsx
 import React from 'react';
-import CharacterRating from 'character-rating-component';
+import CharacterRating from 'react-char-fill';
 
 const App = () => {
-  return (
-    <CharacterRating
+return (
+<CharacterRating
       rating={3.5}
       character="★"
       maxRating={5}
       emptyColor="lightgray"
       fillColor="gold"
       interactive={false}
+      step={0.5}
     />
-  );
+);
 };
 
 export default App;
-```
 
 ### Advanced Example
 
-You can also customize the colors and other props:
+You can also customize the colors, font size, and other props:
 
-```tsx
 import React from 'react';
-import CharacterRating from 'character-rating-component';
+import CharacterRating from 'react-char-fill';
 
 const App = () => {
-  return (
-    <CharacterRating
+return (
+<CharacterRating
       rating={4.2}
       character="☆"
       maxRating={10}
       emptyColor="#e0e0e0"
       fillColor="#ffeb3b"
+      fontSize="32px"
+      interactive={true}
+      step={0.1}
     />
-  );
+);
 };
 
 export default App;
-```
 
 ## API Documentation
 
@@ -80,10 +74,16 @@ A component to display a rating using characters.
 #### Props
 
 - `rating` (number, required): The current rating value.
-- `character` (string, required): The character used to represent the rating. This can be any character shown in utils/characters.ts
+- `character` (string, required): The character used to represent the rating.
 - `maxRating` (number, required): The maximum rating value.
 - `emptyColor` (string, optional): The color for the empty rating characters. Default is `lightgray`.
-- `fillColor` (string, optional): The color for the filled rating characters. Default is `gray`.
+- `fillColor` (string, optional): The color for the filled rating characters. Default is `gold`.
+- `fontSize` (string, optional): The size of the rating characters. Default is `24px`.
+- `interactive` (boolean, optional): If true, the rating can be changed by the user. Default is `true`.
+- `step` (number, required): The increment step for the rating value.
+- `onMouseMove` (function, optional): Function to call on mouse move.
+- `onClick` (function, optional): Function to call on click.
+- `onKeyDown` (function, optional): Function to call on key down.
 
 ### `CharacterFill`
 
@@ -94,8 +94,10 @@ A component used internally by `CharacterRating` to render individual characters
 - `position` (number, required): The position of the character in the rating sequence.
 - `rating` (number, required): The current rating value.
 - `character` (string, required): The character used to represent the rating.
-- `emptyColor` (string, optional): The color for the empty rating characters.
-- `fillColor` (string, optional): The color for the filled rating characters.
+- `emptyColor` (string, optional): The color for the empty rating characters. Default is `grey`.
+- `fillColor` (string, optional): The color for the filled rating characters. Default is `gold`.
+- `fontSize` (string, optional): The size of the character. Default is `24px`.
+- `step` (number, required): The increment step for the rating value.
 
 ## Contributing
 
