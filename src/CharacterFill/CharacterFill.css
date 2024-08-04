@@ -1,0 +1,36 @@
+.char {
+  color: whitesmoke;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 1;
+  position: relative;
+}
+
+.char:after {
+  color: #7d9c88;
+  content: attr(data-char);
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+}
+
+.char.zero-fill:after {
+  width: 0%;
+}
+
+.char.quarter-fill:after {
+  width: 30%;
+}
+
+.char.half-fill:after {
+  width: 50%;
+}
+
+.char.three-quarter-fill:after {
+  width: 69%;
+}
+
+.char.full-fill:after {
+  width: 100%;
+}

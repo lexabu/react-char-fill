@@ -1,35 +1,95 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import CharacterRating from './CharacterRating/CharacterRating';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [rating, setRating] = useState(3);
+  const [character, setCharacter] = useState('★');
+  const [maxRating, setMaxRating] = useState(5);
+  const characters = [
+    '★',
+    '☆',
+    '✪',
+    '✰',
+    '$',
+    '#',
+    '@',
+    '!',
+    '%',
+    '&',
+    '✦',
+    '✧',
+    '⭑',
+    '◆',
+    '◇',
+    '◉',
+    '○',
+    '◎',
+    '●',
+    '■',
+    '□',
+    '▲',
+    '△',
+    '▼',
+    '▽',
+  ];
+
+  const handleCharacterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setCharacter(e.target.value);
+  };
+
+  const handleRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRating(parseFloat(e.target.value));
+  };
+
+  const handleMaxRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMaxRating(parseInt(e.target.value, 10));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app">
+      <h1>Character Rating Test</h1>
+      <div className="rating-section">
+        <CharacterRating
+          rating={rating}
+          character={character}
+          maxRating={maxRating}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="controls">
+        <label>
+          Rating:
+          <input
+            type="number"
+            step="0.25"
+            value={rating}
+            onChange={handleRatingChange}
+            min="0"
+            max={maxRating}
+          />
+        </label>
+        <label>
+          Character:
+          <select value={character} onChange={handleCharacterChange}>
+            {characters.map((char) => (
+              <option key={char} value={char}>
+                {char}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Max Rating:
+          <input
+            type="number"
+            value={maxRating}
+            onChange={handleMaxRatingChange}
+            min="1"
+          />
+        </label>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

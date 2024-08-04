@@ -2,12 +2,19 @@
   "name": "react-char-fill",
   "description": "A React component for flexible character-based ratings.",
   "version": "1.0.0",
+  "main": "dist/react-char-fill.umd.js",
+  "module": "dist/react-char-fill.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -22,7 +29,24 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "prettier": "^3.3.3",
     "typescript": "^5.5.4",
     "vite": "^5.3.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lexabu/react-char-fill.git"
+  },
+  "keywords": [
+    "react",
+    "rating",
+    "character",
+    "typescript"
+  ],
+  "author": "Alex Abushanab",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   }
 }
