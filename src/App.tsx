@@ -1,4 +1,4 @@
-//App.tsx
+// App.tsx
 import React, { useState, useEffect } from 'react';
 import CharacterRating from './CharacterRating/CharacterRating';
 import Controls from './Controls/Controls';
@@ -23,7 +23,7 @@ function App() {
   const [submissionMessage, setSubmissionMessage] = useState('');
 
   useEffect(() => {
-    let timer: any;
+    let timer: number;
     if (isSubmitting) {
       setSubmissionMessage('Rating submitted!');
       timer = setTimeout(() => {
@@ -40,6 +40,7 @@ function App() {
 
   const handleRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRating(parseFloat(e.target.value));
+    setCurrentRating(parseFloat(e.target.value));
   };
 
   const handleMaxRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -121,6 +122,7 @@ function App() {
     if (!interactive || isSubmitting) return;
     const newRating = calculateRating(event, currentRating);
     setRating(newRating);
+    setCurrentRating(newRating);
     console.log('Rating submitted:', newRating);
     setIsSubmitting(true);
   };
