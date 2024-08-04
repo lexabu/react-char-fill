@@ -1,3 +1,4 @@
+// CharacterRating.tsx
 import CharacterFill from '../CharacterFill/CharacterFill';
 
 interface CharacterRatingProps {

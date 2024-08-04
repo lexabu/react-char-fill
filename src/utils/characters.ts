@@ -1,3 +1,4 @@
+//characters.ts
 export const characters = [
   // Stars Category
   { name: 'Black star', character: '★', categories: ['Stars', 'Shapes'] },

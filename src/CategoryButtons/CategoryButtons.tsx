@@ -1,5 +1,4 @@
-import React from 'react';
-
+// CategoryButtons.tsx
 interface CategoryButtonsProps {
   categories: string[];
   selectedCategory: string;

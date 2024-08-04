@@ -1,3 +1,4 @@
+// determineWidth.ts
 const determineWidth = (position: number, rating: number, step: number) => {
   const full = Math.floor(rating);
   const partial = rating - full;

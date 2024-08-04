@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+//App.tsx
+import React, { useState, useEffect } from 'react';
 import CharacterRating from './CharacterRating/CharacterRating';
 import Controls from './Controls/Controls';
 import CategoryButtons from './CategoryButtons/CategoryButtons';
+import Toast from './Toast/Toast';
 import './App.css';
 import { characters } from './utils/characters';
 
@@ -17,6 +19,20 @@ function App() {
   const [interactive, setInteractive] = useState(true);
   const [step, setStep] = useState(0.25);
   const [currentRating, setCurrentRating] = useState(2.5);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionMessage, setSubmissionMessage] = useState('');
+
+  useEffect(() => {
+    let timer: any;
+    if (isSubmitting) {
+      setSubmissionMessage('Rating submitted!');
+      timer = setTimeout(() => {
+        setIsSubmitting(false);
+        setSubmissionMessage('');
+      }, 2000);
+    }
+    return () => clearTimeout(timer);
+  }, [isSubmitting]);
 
   const handleCharacterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCharacter(e.target.value);
@@ -96,23 +112,25 @@ function App() {
   };
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!interactive) return;
+    if (!interactive || isSubmitting) return;
     const newRating = calculateRating(event, currentRating);
     setCurrentRating(newRating);
   };
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!interactive) return;
+    if (!interactive || isSubmitting) return;
     const newRating = calculateRating(event, currentRating);
     setRating(newRating);
     console.log('Rating submitted:', newRating);
+    setIsSubmitting(true);
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (!interactive) return;
+    if (!interactive || isSubmitting) return;
     if (event.key === 'Enter' || event.key === ' ') {
       setRating(currentRating);
       console.log('Rating submitted:', currentRating);
+      setIsSubmitting(true);
     } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
       let newRating = currentRating;
 
@@ -180,6 +198,7 @@ function App() {
           onKeyDown={handleKeyDown}
         />
       </div>
+      <Toast message={submissionMessage} show={!!submissionMessage} />
       <div className="search-container">
         <label>
           Search Symbols:
