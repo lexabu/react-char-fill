@@ -7,33 +7,39 @@ function App() {
   const [rating, setRating] = useState(3);
   const [character, setCharacter] = useState('★');
   const [maxRating, setMaxRating] = useState(5);
-  const [emptyColor, setEmptyColor] = useState('grey');
-  const [fillColor, setFillColor] = useState('gold');
-  const [fontSize, setFontSize] = useState(24); // Start as numeric value
+  const [emptyColor, setEmptyColor] = useState('#808080');
+  const [fillColor, setFillColor] = useState('#ffd700');
+  const [fontSize, setFontSize] = useState(24);
 
-  const handleCharacterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCharacterChange = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
     setCharacter(e.target.value);
   };
 
-  const handleRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleRatingChange = (e: { target: { value: string } }) => {
     setRating(parseFloat(e.target.value));
   };
 
-  const handleMaxRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleMaxRatingChange = (e: { target: { value: string } }) => {
     setMaxRating(parseInt(e.target.value, 10));
   };
 
-  const handleEmptyColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleEmptyColorChange = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
     setEmptyColor(e.target.value);
   };
 
-  const handleFillColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFillColorChange = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
     setFillColor(e.target.value);
   };
 
-  const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFontSizeChange = (e: { target: { value: string } }) => {
     const value = parseInt(e.target.value, 10);
-    if (value >= 12 && value <= 48) {
+    if (value >= 2 && value <= 200) {
       setFontSize(value);
     }
   };
@@ -48,7 +54,7 @@ function App() {
           maxRating={maxRating}
           emptyColor={emptyColor}
           fillColor={fillColor}
-          fontSize={`${fontSize}px`} // Convert to string with 'px'
+          fontSize={`${fontSize}px`}
         />
       </div>
       <div className="controls">
@@ -104,16 +110,9 @@ function App() {
             type="number"
             value={fontSize}
             onChange={handleFontSizeChange}
-            min="12"
-            max="48"
             step="2"
           />
         </label>
-        {fontSize < 12 || fontSize > 48 ? (
-          <p style={{ color: 'red' }}>
-            Font size must be between 12 and 48 pixels
-          </p>
-        ) : null}
       </div>
     </div>
   );
