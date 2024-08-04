@@ -1,4 +1,4 @@
-//Controls.tsx
+// Controls.tsx
 interface ControlsProps {
   rating: number;
   maxRating: number;
@@ -7,6 +7,8 @@ interface ControlsProps {
   fontSize: number;
   step: number;
   interactive: boolean;
+  characters: { character: string; name: string }[];
+  character: string;
   onRatingChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onCharacterChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   onMaxRatingChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -26,6 +28,8 @@ const Controls: React.FC<ControlsProps> = ({
   fontSize,
   step,
   interactive,
+  characters,
+  character,
   onRatingChange,
   onCharacterChange,
   onMaxRatingChange,
@@ -53,11 +57,15 @@ const Controls: React.FC<ControlsProps> = ({
       <label>
         Character:
         <select
-          value={rating}
+          value={character}
           onChange={onCharacterChange}
           aria-label="Character"
         >
-          {/* options should be passed as props or filtered in parent */}
+          {characters.map((char) => (
+            <option key={char.character} value={char.character}>
+              {char.character}
+            </option>
+          ))}
         </select>
       </label>
       <label>

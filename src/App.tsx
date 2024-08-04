@@ -175,6 +175,8 @@ function App() {
         fontSize={fontSize}
         step={step}
         interactive={interactive}
+        characters={filteredCharacters}
+        character={character}
         onRatingChange={handleRatingChange}
         onCharacterChange={handleCharacterChange}
         onMaxRatingChange={handleMaxRatingChange}
