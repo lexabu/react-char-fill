@@ -1,6 +1,6 @@
 {
   "name": "react-char-fill",
-  "description": "A React component for flexible character-based ratings.",
+  "description": "A React component for creating flexible character-based ratings, perfect for star ratings and other similar use cases.",
   "version": "1.0.0",
   "main": "dist/react-char-fill.umd.js",
   "module": "dist/react-char-fill.es.js",
@@ -45,12 +45,24 @@
     "react",
     "rating",
     "character",
-    "typescript"
+    "typescript",
+    "component",
+    "frontend",
+    "ui",
+    "star-rating",
+    "reviews"
   ],
   "author": "Alex Abushanab",
   "license": "MIT",
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
-  }
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/lexabu/react-char-fill/issues"
+  },
+  "homepage": "https://github.com/lexabu/react-char-fill#readme"
 }
