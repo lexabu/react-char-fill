@@ -61,15 +61,16 @@ function App() {
           fontSize={`${fontSize}px`}
         />
       </div>
-      <div className="symbol-container">
-        {characters.map((char, index) => (
-          <span
-            key={index}
+      <div className="symbol-container" role="menu">
+        {characters.map((char) => (
+          <button
+            key={char}
             className="symbol"
             onClick={() => handleCharacterClick(char)}
+            aria-label={`Select symbol ${char}`}
           >
             {char}
-          </span>
+          </button>
         ))}
       </div>
       <div className="controls">
@@ -82,13 +83,18 @@ function App() {
             onChange={handleRatingChange}
             min="0"
             max={maxRating}
+            aria-label="Rating"
           />
         </label>
         <label>
           Character:
-          <select value={character} onChange={handleCharacterChange}>
-            {characters.map((char, index) => (
-              <option key={index} value={char}>
+          <select
+            value={character}
+            onChange={handleCharacterChange}
+            aria-label="Character"
+          >
+            {characters.map((char) => (
+              <option key={char} value={char}>
                 {char}
               </option>
             ))}
@@ -101,6 +107,7 @@ function App() {
             value={maxRating}
             onChange={handleMaxRatingChange}
             min="1"
+            aria-label="Max Rating"
           />
         </label>
         <label>
@@ -109,6 +116,7 @@ function App() {
             type="color"
             value={emptyColor}
             onChange={handleEmptyColorChange}
+            aria-label="Empty Color"
           />
         </label>
         <label>
@@ -117,6 +125,7 @@ function App() {
             type="color"
             value={fillColor}
             onChange={handleFillColorChange}
+            aria-label="Fill Color"
           />
         </label>
         <label>
@@ -126,6 +135,7 @@ function App() {
             value={fontSize}
             onChange={handleFontSizeChange}
             step="2"
+            aria-label="Font Size"
           />
         </label>
       </div>
