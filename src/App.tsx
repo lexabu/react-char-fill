@@ -44,6 +44,10 @@ function App() {
     }
   };
 
+  const handleCharacterClick = (char: React.SetStateAction<string>) => {
+    setCharacter(char);
+  };
+
   return (
     <div className="app">
       <h1>Character Rating Test</h1>
@@ -56,6 +60,17 @@ function App() {
           fillColor={fillColor}
           fontSize={`${fontSize}px`}
         />
+      </div>
+      <div className="symbol-container">
+        {characters.map((char, index) => (
+          <span
+            key={index}
+            className="symbol"
+            onClick={() => handleCharacterClick(char)}
+          >
+            {char}
+          </span>
+        ))}
       </div>
       <div className="controls">
         <label>
@@ -73,7 +88,7 @@ function App() {
           Character:
           <select value={character} onChange={handleCharacterChange}>
             {characters.map((char, index) => (
-              <option key={index + 1000} value={char}>
+              <option key={index} value={char}>
                 {char}
               </option>
             ))}
