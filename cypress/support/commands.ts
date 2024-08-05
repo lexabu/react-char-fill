@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-namespace */
-import { mount } from 'cypress/react18';
-import { MountOptions, MountReturn } from 'cypress/react18';
+/// <reference types="cypress" />
+
+import { mount, MountOptions, MountReturn } from 'cypress/react18';
 
 // Extend Cypress namespace to include the mount command
 declare global {
