@@ -1,11 +1,16 @@
 {
   "root": true,
-  "env": { "browser": true, "es2020": true },
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "cypress/globals": true
+  },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:cypress/recommended"
   ],
   "ignorePatterns": ["dist", ".eslintrc.cjs"],
   "parser": "@typescript-eslint/parser",
@@ -15,7 +20,8 @@
     "@typescript-eslint",
     "import",
     "jsx-a11y",
-    "react-hooks"
+    "react-hooks",
+    "cypress"
   ],
   "rules": {
     "react-refresh/only-export-components": [

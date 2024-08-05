@@ -1,4 +1,3 @@
-// tsconfig.app.json
 {
   "compilerOptions": {
     "composite": true,
@@ -15,7 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "noEmit": false, // Change to allow emit for declaration files for use as a library
+    "noEmit": false,
     "declaration": true,
     "declarationDir": "./dist",
     "emitDeclarationOnly": true,
@@ -27,5 +26,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src", "cypress/**/*.ts", "cypress/integration/character_rating.cy.tsx"]
 }
