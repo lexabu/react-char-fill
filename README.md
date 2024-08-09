@@ -6,15 +6,15 @@ A versatile React component library for creating flexible character-based rating
 
 To install the package, use npm, yarn, or bun:
 
-npm install react-char-fill
+`npm install react-char-fill`
 
 or
 
-yarn add react-char-fill
+`yarn add react-char-fill`
 
 or
 
-bun add react-char-fill
+`bun add react-char-fill`
 
 ## Usage
 
@@ -22,11 +22,12 @@ bun add react-char-fill
 
 Here is a basic example of how to use the `CharacterRating` component:
 
+```jsx
 import CharacterRating from 'react-char-fill';
 
 const App = () => {
-return (
-<CharacterRating
+  return (
+    <CharacterRating
       rating={3.5}
       character="★"
       maxRating={5}
@@ -35,20 +36,22 @@ return (
       interactive={false}
       step={0.5}
     />
-);
+  );
 };
 
 export default App;
+```
 
 ### Advanced Example
 
 You can also customize the colors, font size, and other props:
 
+```jsx
 import CharacterRating from 'react-char-fill';
 
 const App = () => {
-return (
-<CharacterRating
+  return (
+    <CharacterRating
       rating={4.2}
       character="☆"
       maxRating={10}
@@ -58,10 +61,11 @@ return (
       interactive={true}
       step={0.1}
     />
-);
+  );
 };
 
 export default App;
+```
 
 ## API Documentation
 
