@@ -74,5 +74,8 @@
   "bugs": {
     "url": "https://github.com/lexabu/react-char-fill/issues"
   },
-  "homepage": "https://github.com/lexabu/react-char-fill#readme"
+  "homepage": "https://github.com/lexabu/react-char-fill#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }
