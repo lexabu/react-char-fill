@@ -83,7 +83,8 @@
     "publish:npm": "npm publish --registry=https://registry.npmjs.org/",
     "publish-bump:npm": "npm version patch && npm publish --registry=https://registry.npmjs.org/",
     "publish:github": "npm run publish:github-prepare",
-    "publish:github-prepare": "export $(cat .env | xargs) && npm version patch && npm run name:scope && npm publish --registry=https://npm.pkg.github.com && npm run name:restore",
+    "publishbump:github": "npm version patch && npm run publish:github-prepare",
+    "publish:github-prepare": "export $(cat .env | xargs) && npm run name:scope && npm publish --registry=https://npm.pkg.github.com && npm run name:restore",
     "name:scope": "node -e \"let pkg=require('./package.json'); pkg.name='@lexabu/react-char-fill'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));\"",
     "name:restore": "node -e \"let pkg=require('./package.json'); pkg.name='react-char-fill'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));\""
   },
