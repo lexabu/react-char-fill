@@ -34,8 +34,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "typescript": "^5.5.4",
-    "vite": "^5.4.0",
-    "vite-plugin-gh-pages": "^0.4.1"
+    "vite": "^5.4.0"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
@@ -79,7 +78,7 @@
     "test": "cypress",
     "cypress": "npx cypress open",
     "clean": "rm -rf dist && rm -rf node_modules && rm -rf bun.lockb && bun i",
-    "deploy": "vite build && vite preview && vite gh-pages-deploy",
+    "deploy": "vite build && vite preview",
     "publish:npm": "npm publish --registry=https://registry.npmjs.org/",
     "publish-bump:npm": "npm version patch && npm publish --registry=https://registry.npmjs.org/",
     "publish:github": "npm run publish:github-prepare",
