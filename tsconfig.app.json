@@ -4,7 +4,7 @@
     "paths": {
       "lib/*": ["lib/*"]
     },
-    "jsx": "react-jsx",
+    "jsx": "react",
     "moduleResolution": "node",
     "target": "ES2020",
     "module": "ESNext",
@@ -14,16 +14,9 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "declaration": true,
-    "declarationDir": "./dist",
-    "emitDeclarationOnly": true,
-    "types": ["cypress", "node"],
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    "lib": ["ES2020", "DOM"],
-    "isolatedModules": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "declarationDir": "./types",
+    "emitDeclarationOnly": true
   },
-  "include": ["src/lib/**/*", "src/demo/**/*", "cypress/**/*"],
+  "include": ["src/lib/**/*", "src/demo/**/*", "types/**/*.d.ts"],
   "exclude": ["dist", "node_modules"]
 }
