@@ -1,10 +1,10 @@
 # React Char Fill
 
-A versatile React component library for creating flexible character-based ratings, perfect for star ratings and other similar use cases.
+A versatile React component library for creating customizable character-based ratings. Ideal for star ratings and other similar applications, with fine-grained control over rating steps, colors, and interactivity.
 
 ## Installation
 
-To install the package, use npm, yarn, or bun:
+Install the package using your preferred package manager:
 
 `npm install react-char-fill`
 
@@ -44,7 +44,7 @@ export default App;
 
 ### Advanced Example
 
-You can also customize the colors, font size, and other props:
+You can also customize various aspects of the rating, such as colors, font size, and interactivity:
 
 ```jsx
 import CharacterRating from 'react-char-fill';
@@ -71,7 +71,7 @@ export default App;
 
 ### `CharacterRating`
 
-A component to display a rating using characters.
+This component displays a rating using characters and provides the ability to customize and interact with the rating.
 
 #### Props
 
@@ -86,20 +86,6 @@ A component to display a rating using characters.
 - `onMouseMove` (function, optional): Function to call on mouse move.
 - `onClick` (function, optional): Function to call on click.
 - `onKeyDown` (function, optional): Function to call on key down.
-
-### `CharacterFill`
-
-A component used internally by `CharacterRating` to render individual characters.
-
-#### Props
-
-- `position` (number, required): The position of the character in the rating sequence.
-- `rating` (number, required): The current rating value.
-- `character` (string, required): The character used to represent the rating.
-- `emptyColor` (string, optional): The color for the empty rating characters. Default is `grey`.
-- `fillColor` (string, optional): The color for the filled rating characters. Default is `gold`.
-- `fontSize` (string, optional): The size of the character. Default is `24px`.
-- `step` (number, required): The increment step for the rating value.
 
 ## Contributing
 
