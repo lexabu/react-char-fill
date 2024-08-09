@@ -1,41 +1,22 @@
 {
   "compilerOptions": {
-    "types": ["cypress", "node"],
-    "composite": true,
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
+    "baseUrl": "./src",
+    "paths": {
+      "lib/*": ["lib/*"]
+    },
+    "jsx": "react",
     "moduleResolution": "node",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": false,
+    "target": "ES2020",
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
     "declaration": true,
     "declarationDir": "./dist",
-    "emitDeclarationOnly": true,
-    "jsx": "react-jsx",
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "outDir": "./dist",
-    "allowSyntheticDefaultImports": true, // Added this line
-    "esModuleInterop": true, // Add this to improve compatibility with CommonJS modules
-    "forceConsistentCasingInFileNames": true // Ensures file casing consistency across different operating systems
+    "emitDeclarationOnly": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": [
-    "node_modules",
-    "cypress",
-    "dist",
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "**/*.spec.ts",
-    "**/*.spec.tsx",
-    "**/*.cy.tsx"
-  ]
+  "include": ["src/lib/**/*", "src/demo/**/*"],
+  "exclude": ["dist", "node_modules"]
 }

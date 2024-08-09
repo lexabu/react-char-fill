@@ -1,4 +1,6 @@
 // Controls.tsx
+import React from 'react';
+
 interface ControlsProps {
   rating: number;
   maxRating: number;

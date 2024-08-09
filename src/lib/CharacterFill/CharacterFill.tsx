@@ -1,4 +1,5 @@
 // CharacterFill.tsx
+import React from 'react';
 import determineWidth from '../utils/determineWidth';
 
 interface CharacterFillProps {

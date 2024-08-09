@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import CategoryButtons from './CategoryButtons/CategoryButtons';
-import CharacterRating from './CharacterRating/CharacterRating';
+import CharacterRating from '../lib/CharacterRating/CharacterRating';
 import Controls from './Controls/Controls';
 import Toast from './Toast/Toast';
-import { characters } from './utils/characters';
+import { characters } from '../lib/utils/characters';
 
 function App() {
   const [rating, setRating] = useState(2.5);
