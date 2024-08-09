@@ -1,7 +1,7 @@
 {
   "name": "react-char-fill",
   "description": "A React component for creating flexible character-based ratings, perfect for star ratings and other similar use cases.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/react-char-fill.umd.js",
   "module": "dist/react-char-fill.es.js",
   "types": "dist/index.d.ts",
@@ -49,7 +49,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lexabu/react-char-fill.git"
+    "url": "git+https://github.com/lexabu/react-char-fill.git"
   },
   "keywords": [
     "react",
