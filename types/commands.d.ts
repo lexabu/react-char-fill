@@ -1,3 +1,4 @@
+//commands.d.ts
 import { MountOptions, MountReturn } from 'cypress/react18';
 declare global {
   namespace Cypress {

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-namespace */
-/// <reference types="cypress" />
+// cypress/support/commands.ts
 
 import { mount, MountOptions, MountReturn } from 'cypress/react18';
 

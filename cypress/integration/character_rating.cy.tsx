@@ -6,6 +6,7 @@ import React from 'react';
 describe('Character Rating Component', () => {
   beforeEach(() => {
     // Mount the component before each test
+    // @ts-expect-error - Cypress types are not compatible with JSX
     cy.mount(
       <CharacterRating
         rating={3}
@@ -88,6 +89,7 @@ describe('Character Rating Component', () => {
 
   it('should allow users to set a rating by clicking on characters', () => {
     const onClick = cy.stub().as('onClick');
+    // @ts-expect-error - Cypress types are not compatible with JSX
     cy.mount(
       <CharacterRating
         rating={0}

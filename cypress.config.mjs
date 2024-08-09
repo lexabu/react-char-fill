@@ -1,28 +1,14 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+// cypress.config.mjs
 
-export default {
-  ...defineConfig({
-    plugins: [react()],
-    build: {
-      rollupOptions: {
-        external: ['react', 'react-dom'],
-        output: {
-          globals: {
-            react: 'React',
-            'react-dom': 'ReactDOM',
-          },
-        },
-      },
-      specPattern: 'cypress/integration/**/*.cy.{js,jsx,ts,tsx}',
-    },
-  }),
+import { defineConfig } from 'cypress';
 
+export default defineConfig({
   component: {
     devServer: {
       framework: 'react',
       bundler: 'vite',
       viteConfig: {},
     },
+    specPattern: 'cypress/integration/**/*.cy.{js,jsx,ts,tsx}',
   },
-};
+});
