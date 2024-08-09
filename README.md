@@ -22,7 +22,6 @@ bun add react-char-fill
 
 Here is a basic example of how to use the `CharacterRating` component:
 
-import React from 'react';
 import CharacterRating from 'react-char-fill';
 
 const App = () => {
@@ -45,7 +44,6 @@ export default App;
 
 You can also customize the colors, font size, and other props:
 
-import React from 'react';
 import CharacterRating from 'react-char-fill';
 
 const App = () => {

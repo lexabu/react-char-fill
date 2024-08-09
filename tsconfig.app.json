@@ -22,7 +22,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "allowSyntheticDefaultImports": true, // Added this line
+    "esModuleInterop": true, // Add this to improve compatibility with CommonJS modules
+    "forceConsistentCasingInFileNames": true // Ensures file casing consistency across different operating systems
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [
