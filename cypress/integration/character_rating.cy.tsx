@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import React from 'react';
-import CharacterRating from '../../src/CharacterRating/CharacterRating';
+import { CharacterRating } from '../../src/lib/';
 
 describe('Character Rating Component', () => {
   beforeEach(() => {

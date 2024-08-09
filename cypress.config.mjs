@@ -1,18 +1,28 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// cypress.config.ts
-import { defineConfig } from 'cypress';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-export default defineConfig({
-  e2e: {
-    setupNodeEvents(_on, _config) {
-      // implement node event listeners here
+export default {
+  ...defineConfig({
+    plugins: [react()],
+    build: {
+      rollupOptions: {
+        external: ['react', 'react-dom'],
+        output: {
+          globals: {
+            react: 'React',
+            'react-dom': 'ReactDOM',
+          },
+        },
+      },
+      specPattern: 'cypress/integration/**/*.cy.{js,jsx,ts,tsx}',
     },
-  },
+  }),
 
   component: {
     devServer: {
       framework: 'react',
       bundler: 'vite',
+      viteConfig: {},
     },
   },
-});
+};
