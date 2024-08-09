@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+import React from 'react';
 import CharacterRating from '../../src/CharacterRating/CharacterRating';
 
 describe('Character Rating Component', () => {

@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/react-char-fill.svg)](https://badge.fury.io/js/react-char-fill)
+
 # React Char Fill
 
 A versatile React component library for creating customizable character-based ratings. Ideal for star ratings and other similar applications, with fine-grained control over rating steps, colors, and interactivity.
