@@ -9,7 +9,6 @@
   "main": "dist/react-char-fill.umd.js",
   "module": "dist/react-char-fill.es.js",
   "devDependencies": {
-    "@cypress/react18": "^2.0.1",
     "@testing-library/cypress": "^10.0.2",
     "@types/cypress": "^1.1.3",
     "@types/node": "^22.2.0",
@@ -30,15 +29,15 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.9",
-    "gh-pages": "^4.0.0",
+    "gh-pages": "^6.1.1",
     "jest": "^29.7.0",
     "prettier": "^3.3.3",
     "typescript": "^5.5.4",
     "vite": "^5.4.0"
   },
   "peerDependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "bugs": {
     "url": "https://github.com/lexabu/react-char-fill/issues"
@@ -68,26 +67,26 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
     "bp": "vite build && vite preview",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "format": "prettier --write .",
-    "preview": "vite preview",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "test": "cypress",
-    "cypress": "npx cypress open",
-    "clean": "rm -rf dist && rm -rf node_modules && rm -rf bun.lockb && bun i",
-    "deploy": "npm run build:lib && npm run build:demo && gh-pages -d dist-demo",
-    "build:lib": "tsc -p tsconfig.app.json && vite build",
     "build:demo": "vite build --outDir dist-demo",
-    "publish:npm": "npm run build:lib && npm publish --registry=https://registry.npmjs.org/",
-    "publish-bump:npm": "npm version patch && npm run build:lib && npm publish --registry=https://registry.npmjs.org/",
+    "build:lib": "tsc -p tsconfig.app.json && vite build",
+    "build": "vite build",
+    "clean": "rm -rf dist && rm -rf node_modules && rm -rf bun.lockb && bun i",
+    "cypress": "npx cypress open",
+    "deploy": "bun run build:lib && bun run build:demo",
+    "dev": "vite",
+    "format": "prettier --write .",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "preview": "vite preview",
+    "publish-name:restore": "node -e \"let pkg=require('./package.json'); pkg.name='react-char-fill'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));\"",
+    "publish-name:scope": "node -e \"let pkg=require('./package.json'); pkg.name='@lexabu/react-char-fill'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));\"",
+    "publish:github-bump": "npm version patch && npm run publish:github-prepare",
+    "publish:github-prepare": "export $(cat .env | xargs) && bun run build:lib && bun run publish-name:scope && npm publish --registry=https://npm.pkg.github.com && npm run publish-name:restore",
     "publish:github": "npm run publish:github-prepare",
-    "publishbump:github": "npm version patch && npm run publish:github-prepare",
-    "publish:github-prepare": "export $(cat .env | xargs) && npm run build:lib && npm run name:scope && npm publish --registry=https://npm.pkg.github.com && npm run name:restore",
-    "name:scope": "node -e \"let pkg=require('./package.json'); pkg.name='@lexabu/react-char-fill'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));\"",
-    "name:restore": "node -e \"let pkg=require('./package.json'); pkg.name='react-char-fill'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));\""
+    "publish:npm-bump": "npm version patch && bun run build:lib && npm publish --registry=https://registry.npmjs.org/",
+    "publish:npm": "bun run build:lib && npm publish --registry=https://registry.npmjs.org/",
+    "test": "cypress"
   },
   "type": "module",
   "types": "dist/index.d.ts"
