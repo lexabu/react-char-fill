@@ -1,7 +1,7 @@
 [build]
   base = "/"
   publish = "docs-netlify"
-  command = "bun run build:demo"
+  command = "bun run build:netlify"
 
 [[redirects]]
   from = "/*"
