@@ -117,6 +117,47 @@ Contributions are welcome! Please follow these steps to contribute:
 
 ---
 
+## 🏗️ Publishing
+
+To publish a new version of the `react-char-fill` package, follow these steps:
+
+1. **Build and Preview:**
+   First, build and preview the project to ensure everything works as expected.
+
+   ```bash
+   bun run bp
+   ```
+
+   This command will build the library and start a preview server. Verify that the build is successful and the preview behaves as intended.
+
+2. **Commit Changes:**
+   If everything works fine, commit any changes made to the repository.
+
+   ```bash
+   git add .
+   git commit -m "Your commit message"
+   ```
+
+3. **Bump Version:**
+   After committing, bump the version number. This will update the `package.json` version and create a new commit with the version bump.
+
+   ```bash
+   bun run bump
+   ```
+
+4. **Publish:**
+   Finally, publish the package to npm and GitHub Packages.
+
+   ```bash
+   bun run publish
+   ```
+
+   This command will build the library, publish the package to npm and GitHub Packages, and ensure everything is correctly versioned and released.
+
+By following these steps, you can ensure that each release is built, tested, and published consistently.
+
+---
+
 ## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
