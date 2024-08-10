@@ -8,12 +8,12 @@ import Toast from './Toast/Toast';
 import { characters } from '../lib/utils/characters';
 
 function App() {
-  const [rating, setRating] = useState(2.5);
+  const [rating, setRating] = useState(2.75);
   const [character, setCharacter] = useState('♣');
-  const [maxRating, setMaxRating] = useState(5);
+  const [maxRating, setMaxRating] = useState(4);
   const [emptyColor, setEmptyColor] = useState('#808080');
   const [fillColor, setFillColor] = useState('#ffd700');
-  const [fontSize, setFontSize] = useState(120);
+  const [fontSize, setFontSize] = useState(90);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [interactive, setInteractive] = useState(true);
@@ -172,28 +172,30 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Character Rating Test</h1>
-      <Controls
-        rating={rating}
-        maxRating={maxRating}
-        emptyColor={emptyColor}
-        fillColor={fillColor}
-        fontSize={fontSize}
-        step={step}
-        interactive={interactive}
-        characters={filteredCharacters}
-        character={character}
-        onRatingChange={handleRatingChange}
-        onCharacterChange={handleCharacterChange}
-        onMaxRatingChange={handleMaxRatingChange}
-        onEmptyColorChange={handleEmptyColorChange}
-        onFillColorChange={handleFillColorChange}
-        onFontSizeChange={handleFontSizeChange}
-        onInteractiveToggle={handleInteractiveToggle}
-        onInteractiveKeyDown={handleInteractiveKeyDown}
-        onStepChange={e => setStep(parseFloat(e.target.value))}
-      />
-      <div className="rating-section">
+      <div className="section controls-section">
+        <Controls
+          rating={rating}
+          maxRating={maxRating}
+          emptyColor={emptyColor}
+          fillColor={fillColor}
+          fontSize={fontSize}
+          step={step}
+          interactive={interactive}
+          characters={filteredCharacters}
+          character={character}
+          onRatingChange={handleRatingChange}
+          onCharacterChange={handleCharacterChange}
+          onMaxRatingChange={handleMaxRatingChange}
+          onEmptyColorChange={handleEmptyColorChange}
+          onFillColorChange={handleFillColorChange}
+          onFontSizeChange={handleFontSizeChange}
+          onInteractiveToggle={handleInteractiveToggle}
+          onInteractiveKeyDown={handleInteractiveKeyDown}
+          onStepChange={e => setStep(parseFloat(e.target.value))}
+        />
+      </div>
+
+      <div className="section rating-section">
         <CharacterRating
           rating={currentRating}
           character={character}
@@ -208,35 +210,41 @@ function App() {
           onKeyDown={handleKeyDown}
         />
       </div>
-      <Toast message={submissionMessage} show={!!submissionMessage} />
-      <div className="search-container">
-        <label>
-          Search Symbols:
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={handleSearchChange}
-            aria-label="Search Symbols"
-          />
-        </label>
+
+      <div className="section search-container-section">
+        <Toast message={submissionMessage} show={!!submissionMessage} />
+        <div className="search-container">
+          <label>
+            Search Symbols:
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={handleSearchChange}
+              aria-label="Search Symbols"
+            />
+          </label>
+        </div>
       </div>
-      <CategoryButtons
-        categories={categories}
-        selectedCategory={selectedCategory}
-        onCategoryClick={handleCategoryClick}
-      />
-      <div className="symbol-container" role="menu">
-        {filteredCharacters.map(charObj => (
-          <button
-            key={charObj.character}
-            className="symbol"
-            onClick={() => handleCharacterClick(charObj.character)}
-            aria-label={`Select symbol ${charObj.name}`}
-            title={charObj.name}
-          >
-            {charObj.character}
-          </button>
-        ))}
+
+      <div className="section symbol-container-section">
+        <CategoryButtons
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onCategoryClick={handleCategoryClick}
+        />
+        <div className="symbol-container" role="menu">
+          {filteredCharacters.map(charObj => (
+            <button
+              key={charObj.character}
+              className="symbol"
+              onClick={() => handleCharacterClick(charObj.character)}
+              aria-label={`Select symbol ${charObj.name}`}
+              title={charObj.name}
+            >
+              {charObj.character}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
