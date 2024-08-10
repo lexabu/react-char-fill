@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   root: './src/demo',
-  base: '/<REPO>/',
+  base: '/react-char-fill/',
   plugins: [react()],
   build: {
     outDir: '../../docs',
