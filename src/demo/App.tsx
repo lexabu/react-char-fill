@@ -103,17 +103,14 @@ function App() {
     let x: number;
 
     if ('clientX' in event) {
-      // It's a MouseEvent
       x = event.clientX - rect.left;
     } else {
-      // It's a KeyboardEvent
       x = (currentRating / maxRating) * rect.width;
     }
 
     const width = rect.width;
     let newRating = (x / width) * maxRating;
 
-    // Snap to nearest step
     newRating = Math.round(newRating / step) * step;
     return newRating;
   };
@@ -245,6 +242,17 @@ function App() {
             </button>
           ))}
         </div>
+      </div>
+      <div className="install-section">
+        Install via npm:
+        <a
+          href="https://www.npmjs.com/package/react-char-fill"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: fillColor }}
+        >
+          react-char-fill
+        </a>
       </div>
     </div>
   );
