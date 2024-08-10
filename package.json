@@ -80,6 +80,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "preview": "vite preview",
+    "publish": "bun run build && bun run publish:npm-bump && bun run publish:github",
     "publish-name:restore": "node -e \"let pkg=require('./package.json'); pkg.name='react-char-fill'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));\"",
     "publish-name:scope": "node -e \"let pkg=require('./package.json'); pkg.name='@lexabu/react-char-fill'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));\"",
     "publish:github-bump": "npm version patch && npm run publish:github-prepare",
