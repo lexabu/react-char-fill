@@ -1,0 +1,9 @@
+[build]
+  base = "/"
+  publish = "docs-netlify"
+  command = "bun run build:demo"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

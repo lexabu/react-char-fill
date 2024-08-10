@@ -67,10 +67,11 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "bp": "vite build && vite preview",
-    "build:demo": "rm -rf docs && vite build --outDir docs && mv src/demo/docs .",
-    "build:lib": " vite build --config vite-lib.config.ts && tsc -p tsconfig.lib.json",
-    "build": "bun run build:lib && bun run build:demo",
+    "bp": "bun run build && vite preview",
+    "build:gh-pages": "vite build --config vite-gh-pages.config.ts",
+    "build:netlify": "vite build --config vite-netlify.config.ts",
+    "build:lib": "vite build --config vite-lib.config.ts && tsc -p tsconfig.lib.json",
+    "build": "bun run build:lib && bun run build:gh-pages && bun run build:netlify",
     "bump": "npm version patch",
     "clean": "rm -rf dist && rm -rf node_modules && rm -rf bun.lockb && bun i",
     "cypress": "npx cypress open",
