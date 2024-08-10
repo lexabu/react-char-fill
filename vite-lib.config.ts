@@ -5,7 +5,7 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [react()],
   build: {
-    sourcemap: true,
+    sourcemap: 'inline',
     lib: {
       entry: resolve(__dirname, 'src/lib/index.ts'),
       name: 'ReactCharFill',
