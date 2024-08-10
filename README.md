@@ -4,27 +4,41 @@
 
 A versatile React component library for creating customizable character-based ratings. Ideal for star ratings and other similar applications, with fine-grained control over rating steps, colors, and interactivity.
 
-## Installation
+---
+
+## 📺 Live Demo
+
+Experience the component in action: [Live Demo](https://lexabu.github.io/react-char-fill/)
+
+---
+
+## 🚀 Installation
 
 Install the package using your preferred package manager:
 
-`npm install react-char-fill`
+```
+npm install react-char-fill
+```
 
 or
 
-`yarn add react-char-fill`
+```
+yarn add react-char-fill
+```
 
 or
 
-`bun add react-char-fill`
+```
+bun add react-char-fill
+```
 
-## Usage
+---
+
+## 📚 Usage
 
 ### Basic Example
 
-Here is a basic example of how to use the `CharacterRating` component:
-
-```jsx
+```
 import CharacterRating from 'react-char-fill';
 
 const App = () => {
@@ -46,9 +60,7 @@ export default App;
 
 ### Advanced Example
 
-You can also customize various aspects of the rating, such as colors, font size, and interactivity:
-
-```jsx
+```
 import CharacterRating from 'react-char-fill';
 
 const App = () => {
@@ -69,7 +81,9 @@ const App = () => {
 export default App;
 ```
 
-## API Documentation
+---
+
+## 🔧 API Documentation
 
 ### `CharacterRating`
 
@@ -89,16 +103,20 @@ This component displays a rating using characters and provides the ability to cu
 - `onClick` (function, optional): Function to call on click.
 - `onKeyDown` (function, optional): Function to call on key down.
 
-## Contributing
+---
+
+## 🤝 Contributing
 
 Contributions are welcome! Please follow these steps to contribute:
 
-1. Fork the repository.
-2. Create a new branch with your changes: `git checkout -b my-feature-branch`.
-3. Commit your changes: `git commit -am 'Add new feature'`.
-4. Push to the branch: `git push origin my-feature-branch`.
-5. Create a pull request.
+1. **Fork the repository.**
+2. **Create a new branch** with your changes: `git checkout -b my-feature-branch`.
+3. **Commit your changes**: `git commit -am 'Add new feature'`.
+4. **Push to the branch**: `git push origin my-feature-branch`.
+5. **Create a pull request.**
 
-## License
+---
+
+## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
