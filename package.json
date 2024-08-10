@@ -69,7 +69,7 @@
   "scripts": {
     "bp": "vite build && vite preview",
     "build:demo": "rm -rf docs && vite build --outDir docs && mv src/demo/docs .",
-    "build:lib": "tsc -p tsconfig.lib.json --declaration && vite build --config vite-lib.config.ts",
+    "build:lib": " vite build --config vite-lib.config.ts && tsc -p tsconfig.lib.json",
     "generate-types": "tsc -p tsconfig.lib.json",
     "build": "bun run build:lib && bun run build:demo",
     "clean": "rm -rf dist && rm -rf node_modules && rm -rf bun.lockb && bun i",
