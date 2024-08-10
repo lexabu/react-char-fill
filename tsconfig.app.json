@@ -18,6 +18,6 @@
     "declarationDir": "./types",
     "emitDeclarationOnly": true
   },
-  "include": ["src/lib/**/*", "src/demo/**/*", "types/**/*.d.ts"],
+  "include": ["src/lib/**/*", "src/demo/**/*", "types/**/*.d.ts", "docs"],
   "exclude": ["dist", "node_modules"]
 }
