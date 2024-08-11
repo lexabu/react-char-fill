@@ -253,7 +253,7 @@ function App() {
         </div>
       </div>
       <div className="install-section">
-        Install via npm:
+        Install via npm:{' '}
         <a
           href="https://www.npmjs.com/package/react-char-fill"
           target="_blank"
