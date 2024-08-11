@@ -90,7 +90,7 @@
     "publish:github-prepare": "export $(cat .env | xargs) && bun run publish-name:scope && npm publish --registry=https://npm.pkg.github.com && npm run publish-name:restore",
     "publish:github": "npm run publish:github-prepare",
     "publish:npm": "npm publish --registry=https://registry.npmjs.org/",
-    "publish": "bun run publish:npm && bun run publish:github",
+    "publish": "bun run publish:github && bun run publish:npm",
     "test": "cypress"
   },
   "type": "module",
