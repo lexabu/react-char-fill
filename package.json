@@ -1,5 +1,5 @@
 {
-  "name": "react-char-fill",
+  "name": "@lexabu/react-char-fill",
   "version": "1.0.19",
   "author": "Alex Abushanab",
   "repository": {
@@ -90,7 +90,7 @@
     "publish:github-prepare": "export $(cat .env | xargs) && bun run publish-name:scope && npm publish --registry=https://npm.pkg.github.com && npm run publish-name:restore",
     "publish:github": "npm run publish:github-prepare",
     "publish:npm": "npm publish --registry=https://registry.npmjs.org/",
-    "publish": "bun run publish:github && bun run publish:npm",
+    "publish": "bun run publish:npm && bun run publish:github",
     "test": "cypress"
   },
   "type": "module",
