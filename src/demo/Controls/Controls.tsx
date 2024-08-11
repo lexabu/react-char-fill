@@ -1,4 +1,3 @@
-// Controls.tsx
 import React from 'react';
 
 interface ControlsProps {
@@ -13,7 +12,7 @@ interface ControlsProps {
   character: string;
   onRatingChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onCharacterChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  onMaxRatingChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onMaxRatingChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   onEmptyColorChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFillColorChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFontSizeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -72,13 +71,17 @@ const Controls: React.FC<ControlsProps> = ({
       </label>
       <label>
         Max Rating:
-        <input
-          type="number"
+        <select
           value={maxRating}
           onChange={onMaxRatingChange}
-          min="1"
           aria-label="Max Rating"
-        />
+        >
+          {Array.from({ length: 10 }, (_, i) => i + 1).map(value => (
+            <option key={value} value={value}>
+              {value}
+            </option>
+          ))}
+        </select>
       </label>
       <label>
         Empty Color:

@@ -1,4 +1,3 @@
-// App.tsx
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import CategoryButtons from './CategoryButtons/CategoryButtons';
@@ -49,7 +48,7 @@ function App() {
     setCurrentRating(parseFloat(e.target.value));
   };
 
-  const handleMaxRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleMaxRatingChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setMaxRating(parseInt(e.target.value, 10));
   };
 
@@ -112,6 +111,7 @@ function App() {
     let newRating = (x / width) * maxRating;
 
     newRating = Math.round(newRating / step) * step;
+    newRating = Math.max(newRating, 1); // Ensure the rating doesn't drop below 1
     return newRating;
   };
 
@@ -124,8 +124,8 @@ function App() {
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!interactive || isSubmitting) return;
     const newRating = calculateRating(event, currentRating);
-    setRating(newRating);
-    setCurrentRating(newRating);
+    setRating(Math.max(newRating, 1)); // Ensure the rating doesn't drop below 1
+    setCurrentRating(Math.max(newRating, 1)); // Ensure the current rating doesn't drop below 1
     console.log('Rating submitted:', newRating);
     setIsSubmitting(true);
   };
@@ -133,14 +133,14 @@ function App() {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (!interactive || isSubmitting) return;
     if (event.key === 'Enter' || event.key === ' ') {
-      setRating(currentRating);
+      setRating(Math.max(currentRating, 1)); // Ensure the rating doesn't drop below 1
       console.log('Rating submitted:', currentRating);
       setIsSubmitting(true);
     } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
       let newRating = currentRating;
 
       if (event.key === 'ArrowLeft') {
-        newRating = Math.max(0, currentRating - step);
+        newRating = Math.max(1, currentRating - step); // Ensure the rating doesn't drop below 1
       } else if (event.key === 'ArrowRight') {
         newRating = Math.min(maxRating, currentRating + step);
       }
