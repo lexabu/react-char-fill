@@ -10,7 +10,10 @@ A versatile React component library for creating customizable character-based ra
 
 Experience the component in action: [Live Demo](https://lexabu.github.io/react-char-fill/)
 
-![react-char-fill-demo](https://github.com/user-attachments/assets/eb7e8595-76c3-4d8e-9993-1a5aa4f5b53d)
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/eb7e8595-76c3-4d8e-9993-1a5aa4f5b53d" alt="react-char-fill-demo" />
+</div>
+
 
 ---
 
