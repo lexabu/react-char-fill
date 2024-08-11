@@ -78,9 +78,10 @@ const Controls: React.FC<ControlsProps> = ({
         <input
           type="number"
           step="0.1"
-          value={step}
+          value={step > 1 ? 1 : step}
           onChange={onStepChange}
           min="0.0"
+          max="1.0"
           aria-label="Step"
         />
       </label>
@@ -129,6 +130,7 @@ const Controls: React.FC<ControlsProps> = ({
           onBlur={onFontSizeBlur}
           step="1"
           min="1"
+          max="180"
           aria-label="Font Size"
         />
       </label>

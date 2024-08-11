@@ -44,8 +44,9 @@ function App() {
   };
 
   const handleRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRating(parseFloat(e.target.value));
-    setCurrentRating(parseFloat(e.target.value));
+    const newRating = Math.round(parseFloat(e.target.value) / step) * step;
+    setRating(newRating);
+    setCurrentRating(newRating);
   };
 
   const handleMaxRatingChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -62,7 +63,7 @@ function App() {
 
   const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setFontSize(value === '' ? 0 : parseInt(value, 10)); // Allow empty string to be set
+    setFontSize(value === '' ? 0 : parseInt(value, 10));
   };
 
   const handleFontSizeBlur = () => {
@@ -119,7 +120,7 @@ function App() {
     let newRating = (x / width) * maxRating;
 
     newRating = Math.round(newRating / step) * step;
-    newRating = Math.max(newRating, 1); // Ensure the rating doesn't drop below 1
+    newRating = Math.max(newRating, 1);
     return newRating;
   };
 
@@ -132,8 +133,8 @@ function App() {
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!interactive || isSubmitting) return;
     const newRating = calculateRating(event, currentRating);
-    setRating(Math.max(newRating, 1)); // Ensure the rating doesn't drop below 1
-    setCurrentRating(Math.max(newRating, 1)); // Ensure the current rating doesn't drop below 1
+    setRating(Math.max(newRating, 1));
+    setCurrentRating(Math.max(newRating, 1));
     console.log('Rating submitted:', newRating);
     setIsSubmitting(true);
   };
@@ -141,14 +142,14 @@ function App() {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (!interactive || isSubmitting) return;
     if (event.key === 'Enter' || event.key === ' ') {
-      setRating(Math.max(currentRating, 1)); // Ensure the rating doesn't drop below 1
+      setRating(Math.max(currentRating, 1));
       console.log('Rating submitted:', currentRating);
       setIsSubmitting(true);
     } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
       let newRating = currentRating;
 
       if (event.key === 'ArrowLeft') {
-        newRating = Math.max(1, currentRating - step); // Ensure the rating doesn't drop below 1
+        newRating = Math.max(1, currentRating - step);
       } else if (event.key === 'ArrowRight') {
         newRating = Math.min(maxRating, currentRating + step);
       }
