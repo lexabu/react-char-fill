@@ -121,7 +121,7 @@ const Controls: React.FC<ControlsProps> = ({
       </label>
 
       <label>
-        Font Size (px)
+        Font Size
         <input
           type="number"
           value={fontSize || ''}
