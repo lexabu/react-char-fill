@@ -16,6 +16,7 @@ interface ControlsProps {
   onEmptyColorChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFillColorChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFontSizeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onFontSizeBlur: () => void;
   onInteractiveToggle: () => void;
   onInteractiveKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onStepChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -37,6 +38,7 @@ const Controls: React.FC<ControlsProps> = ({
   onEmptyColorChange,
   onFillColorChange,
   onFontSizeChange,
+  onFontSizeBlur,
   onInteractiveToggle,
   onInteractiveKeyDown,
   onStepChange,
@@ -44,19 +46,7 @@ const Controls: React.FC<ControlsProps> = ({
   return (
     <div className="controls">
       <label>
-        Rating:
-        <input
-          type="number"
-          step={step}
-          value={rating}
-          onChange={onRatingChange}
-          min="0"
-          max={maxRating}
-          aria-label="Rating"
-        />
-      </label>
-      <label>
-        Character:
+        Character
         <select
           value={character}
           onChange={onCharacterChange}
@@ -69,8 +59,34 @@ const Controls: React.FC<ControlsProps> = ({
           ))}
         </select>
       </label>
+
       <label>
-        Max Rating:
+        Rating
+        <input
+          type="number"
+          step={step}
+          value={rating}
+          onChange={onRatingChange}
+          min="0"
+          max={maxRating}
+          aria-label="Rating"
+        />
+      </label>
+
+      <label>
+        Step
+        <input
+          type="number"
+          step="0.1"
+          value={step}
+          onChange={onStepChange}
+          min="0.0"
+          aria-label="Step"
+        />
+      </label>
+
+      <label>
+        Max Rating
         <select
           value={maxRating}
           onChange={onMaxRatingChange}
@@ -83,8 +99,9 @@ const Controls: React.FC<ControlsProps> = ({
           ))}
         </select>
       </label>
+
       <label>
-        Empty Color:
+        Empty Color
         <input
           type="color"
           value={emptyColor}
@@ -92,8 +109,9 @@ const Controls: React.FC<ControlsProps> = ({
           aria-label="Empty Color"
         />
       </label>
+
       <label>
-        Fill Color:
+        Fill Color
         <input
           type="color"
           value={fillColor}
@@ -101,35 +119,28 @@ const Controls: React.FC<ControlsProps> = ({
           aria-label="Fill Color"
         />
       </label>
+
       <label>
-        Font Size (px):
+        Font Size (px)
         <input
           type="number"
-          value={fontSize}
+          value={fontSize || ''}
           onChange={onFontSizeChange}
-          step="2"
+          onBlur={onFontSizeBlur}
+          step="1"
+          min="1"
           aria-label="Font Size"
         />
       </label>
+
       <label>
-        Interactive:
+        Interactive
         <input
           type="checkbox"
           checked={interactive}
           onChange={onInteractiveToggle}
           onKeyDown={onInteractiveKeyDown}
           aria-label="Toggle Interactive"
-        />
-      </label>
-      <label>
-        Step:
-        <input
-          type="number"
-          step="0.1"
-          value={step}
-          onChange={onStepChange}
-          min="0.0"
-          aria-label="Step"
         />
       </label>
     </div>

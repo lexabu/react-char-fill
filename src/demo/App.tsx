@@ -61,10 +61,18 @@ function App() {
   };
 
   const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(e.target.value, 10);
-    if (value >= 4 && value <= 180) {
-      setFontSize(value);
+    const value = e.target.value;
+    setFontSize(value === '' ? 0 : parseInt(value, 10)); // Allow empty string to be set
+  };
+
+  const handleFontSizeBlur = () => {
+    let validFontSize = fontSize;
+    if (fontSize < 1) {
+      validFontSize = 1;
+    } else if (fontSize > 180) {
+      validFontSize = 180;
     }
+    setFontSize(validFontSize);
   };
 
   const handleCharacterClick = (char: string) => {
@@ -185,6 +193,7 @@ function App() {
           onMaxRatingChange={handleMaxRatingChange}
           onEmptyColorChange={handleEmptyColorChange}
           onFillColorChange={handleFillColorChange}
+          onFontSizeBlur={handleFontSizeBlur}
           onFontSizeChange={handleFontSizeChange}
           onInteractiveToggle={handleInteractiveToggle}
           onInteractiveKeyDown={handleInteractiveKeyDown}
