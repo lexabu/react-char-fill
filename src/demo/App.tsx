@@ -252,13 +252,22 @@ function App() {
           ))}
         </div>
       </div>
-      <div className="install-section">
+      <div
+        className="install-section"
+        style={{
+          backgroundImage: `linear-gradient(to right, ${fillColor} ${(currentRating / maxRating) * 100}%, ${emptyColor} ${(currentRating / maxRating) * 100}%)`,
+          backgroundClip: 'text',
+          color: 'transparent',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+      >
         Install via npm:{' '}
         <a
           href="https://www.npmjs.com/package/react-char-fill"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ color: fillColor }}
+          style={{ color: 'inherit' }}
         >
           react-char-fill
         </a>
