@@ -1,0 +1,8 @@
+{
+  "buildCommand": "bun run build:netlify",
+  "outputDirectory": "docs-netlify",
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}

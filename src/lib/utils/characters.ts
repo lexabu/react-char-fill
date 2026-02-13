@@ -1,4 +1,63 @@
 //characters.ts
+
+/**
+ * Unicode Variation Selector 15 (VS15) forces text presentation for characters
+ * that iOS/macOS may render as emoji by default.
+ */
+const VS15 = '\uFE0E';
+
+/**
+ * Characters in these Unicode ranges are commonly rendered as emoji on iOS.
+ * Appending VS15 forces them into text (monochrome) presentation.
+ */
+const EMOJI_PRONE_RANGES: Array<[number, number]> = [
+  [0x2600, 0x27bf], // Miscellaneous Symbols, Dingbats
+  [0x2b50, 0x2b55], // Stars, circles
+  [0x2934, 0x2935], // Arrows
+  [0x25aa, 0x25ab], // Small squares
+  [0x25fb, 0x25fe], // Medium squares
+  [0x2614, 0x2615], // Umbrella, hot beverage
+  [0x2648, 0x2653], // Zodiac signs
+  [0x2660, 0x2668], // Card suits, hot springs
+  [0x267b, 0x267b], // Recycling
+  [0x267f, 0x267f], // Wheelchair
+  [0x2693, 0x2693], // Anchor
+  [0x2694, 0x2697], // Swords, alembic
+  [0x2699, 0x2699], // Gear
+  [0x269b, 0x269c], // Atom, fleur-de-lis
+  [0x26a0, 0x26a1], // Warning, high voltage
+  [0x26aa, 0x26ab], // Medium circles
+  [0x26bd, 0x26be], // Soccer, baseball
+  [0x26c4, 0x26c5], // Snowman, sun behind cloud
+  [0x26ce, 0x26ce], // Ophiuchus
+  [0x26d4, 0x26d4], // No entry
+  [0x26ea, 0x26ea], // Church
+  [0x26f2, 0x26f3], // Fountain, golf
+  [0x26f5, 0x26f5], // Sailboat
+  [0x26fa, 0x26fa], // Tent
+  [0x26fd, 0x26fd], // Fuel pump
+];
+
+function isEmojiProne(codePoint: number): boolean {
+  return EMOJI_PRONE_RANGES.some(
+    ([start, end]) => codePoint >= start && codePoint <= end,
+  );
+}
+
+/**
+ * Appends VS15 (U+FE0E) to characters that iOS may render as color emoji,
+ * forcing them into text (monochrome) presentation.
+ * Safe characters are returned unchanged.
+ */
+export function ensureTextPresentation(char: string): string {
+  if (!char) return char;
+  const codePoint = char.codePointAt(0);
+  if (codePoint === undefined) return char;
+  if (char.includes(VS15)) return char;
+  if (isEmojiProne(codePoint)) return char + VS15;
+  return char;
+}
+
 export const characters = [
   // Stars Category
   { name: 'Black star', character: '★', categories: ['Stars', 'Shapes'] },
