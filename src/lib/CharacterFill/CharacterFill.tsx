@@ -1,6 +1,7 @@
 // CharacterFill.tsx
 import React from 'react';
 import determineWidth from '../utils/determineWidth';
+import { ensureTextPresentation } from '../utils/characters';
 
 interface CharacterFillProps {
   position: number;
@@ -21,7 +22,9 @@ const CharacterFill: React.FC<CharacterFillProps> = ({
   fontSize = '24px',
   step,
 }) => {
-  const width = determineWidth(position, rating, step);
+  const safeStep = step > 0 ? step : 0.1;
+  const width = determineWidth(position, rating, safeStep);
+  const displayChar = ensureTextPresentation(character);
 
   return (
     <span
@@ -30,11 +33,11 @@ const CharacterFill: React.FC<CharacterFillProps> = ({
         display: 'inline-flex',
         background: 'none',
         border: 'none',
-        cursor: 'inherit', // Inherit cursor style from parent
+        cursor: 'inherit',
         padding: 0,
         outline: 'none',
-        lineHeight: 0, // Adjust line-height to reduce height
-        verticalAlign: 'middle', // Adjust vertical alignment
+        lineHeight: 0,
+        verticalAlign: 'middle',
       }}
       aria-label={`Rate ${position}`}
       className="rating-symbol"
@@ -43,12 +46,12 @@ const CharacterFill: React.FC<CharacterFillProps> = ({
         style={{
           color: emptyColor,
           fontSize,
-          lineHeight: fontSize, // Ensure the line-height matches the font-size
+          lineHeight: fontSize,
           boxSizing: 'border-box',
           verticalAlign: 'middle',
         }}
       >
-        {character}
+        {displayChar}
       </span>
       <span
         style={{
@@ -59,12 +62,12 @@ const CharacterFill: React.FC<CharacterFillProps> = ({
           overflow: 'hidden',
           width,
           fontSize,
-          lineHeight: fontSize, // Ensure the line-height matches the font-size
+          lineHeight: fontSize,
           boxSizing: 'border-box',
           verticalAlign: 'middle',
         }}
       >
-        {character}
+        {displayChar}
       </span>
     </span>
   );

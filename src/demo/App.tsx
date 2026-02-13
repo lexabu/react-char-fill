@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import CategoryButtons from './CategoryButtons/CategoryButtons';
 import CharacterRating from '../lib/CharacterRating/CharacterRating';
@@ -20,7 +20,7 @@ function App() {
   const [currentRating, setCurrentRating] = useState(2.5);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionMessage, setSubmissionMessage] = useState('');
-  const [timer, setTimer] = useState<number | null>(null);
+  const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (isSubmitting) {
@@ -29,14 +29,13 @@ function App() {
         setIsSubmitting(false);
         setSubmissionMessage('');
       }, 2000);
-      setTimer(timeoutId);
+      timerRef.current = timeoutId;
     }
     return () => {
-      if (timer !== null) {
-        clearTimeout(timer);
+      if (timerRef.current !== null) {
+        clearTimeout(timerRef.current);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSubmitting]);
 
   const handleCharacterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -135,15 +134,18 @@ function App() {
     const newRating = calculateRating(event, currentRating);
     setRating(Math.max(newRating, 1));
     setCurrentRating(Math.max(newRating, 1));
-    console.log('Rating submitted:', newRating);
     setIsSubmitting(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (!interactive || isSubmitting) return;
+    setCurrentRating(rating);
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (!interactive || isSubmitting) return;
     if (event.key === 'Enter' || event.key === ' ') {
       setRating(Math.max(currentRating, 1));
-      console.log('Rating submitted:', currentRating);
       setIsSubmitting(true);
     } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
       let newRating = currentRating;
@@ -213,6 +215,7 @@ function App() {
           interactive={interactive}
           step={step}
           onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
           onClick={handleClick}
           onKeyDown={handleKeyDown}
         />

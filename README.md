@@ -8,7 +8,7 @@ A versatile React component library for creating customizable character-based ra
 
 ## 📺 Live Demo
 
-Experience the component in action: [Live Demo](https://lexabu.github.io/react-char-fill/)
+Experience the component in action: [Live Demo](https://react-character-fill.alexabushanab.com)
 
 <div align="center">
     <img src="https://github.com/user-attachments/assets/eb7e8595-76c3-4d8e-9993-1a5aa4f5b53d" alt="react-char-fill-demo" />
@@ -44,7 +44,7 @@ bun add react-char-fill
 ### Basic Example
 
 ```
-import CharacterRating from 'react-char-fill';
+import { CharacterRating } from 'react-char-fill';
 
 const App = () => {
   return (
@@ -66,7 +66,7 @@ export default App;
 ### Advanced Example
 
 ```
-import CharacterRating from 'react-char-fill';
+import { CharacterRating } from 'react-char-fill';
 
 const App = () => {
   return (
@@ -106,6 +106,7 @@ This component displays a rating using characters and provides the ability to cu
 - `step` (number, required): The increment step for the rating value.
 - `onMouseMove` (function, optional): Function to call on mouse move.
 - `onClick` (function, optional): Function to call on click.
+- `onMouseLeave` (function, optional): Function to call when the mouse leaves the rating area.
 - `onKeyDown` (function, optional): Function to call on key down.
 
 ---

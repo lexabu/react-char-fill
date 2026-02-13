@@ -1,5 +1,9 @@
 // determineWidth.ts
 const determineWidth = (position: number, rating: number, step: number) => {
+  if (step <= 0) {
+    return '0%';
+  }
+
   const full = Math.floor(rating);
   const partial = rating - full;
 
@@ -8,7 +12,7 @@ const determineWidth = (position: number, rating: number, step: number) => {
   }
 
   if (position === full + 1) {
-    return `${(partial / step) * step * 100}%`;
+    return `${Math.round((partial / step) * step * 100 * 1e8) / 1e8}%`;
   }
 
   return '0%';
