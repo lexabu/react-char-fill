@@ -61,7 +61,12 @@
     "node": ">=14.0.0"
   },
   "files": [
-    "dist",
+    "dist/react-char-fill.es.js",
+    "dist/react-char-fill.umd.js",
+    "dist/index.d.ts",
+    "dist/CharacterFill",
+    "dist/CharacterRating",
+    "dist/utils",
     "README.md"
   ],
   "homepage": "https://github.com/lexabu/react-char-fill#readme",
