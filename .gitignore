@@ -26,3 +26,7 @@ dist-ssr
 
 # Stale transpiled copies in lib source
 src/lib/**/*.js
+
+# Local config
+.claude/
+.vercel/
